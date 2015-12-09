@@ -297,10 +297,6 @@ function test_1_check_license() {
 
 	$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
-	/*echo '<pre>';
-		print_r($license_data);
-	echo '</pre>';exit;*/
-
 	if (  isset( $_GET['page'] ) && $_GET['page'] == 'fx-trads-license' ) {
 
 		switch ( $license_data->license ) {
