@@ -283,17 +283,17 @@ function test_1_check_license() {
  	);
 
 	// Call the custom API.
- 	$cached = wp_remote_post( add_query_arg( $api_params, TEST_1_STORE_URL ), array(
+ 	$response = wp_remote_post( add_query_arg( $api_params, TEST_1_STORE_URL ), array(
  		'timeout'   => 15,
  		'sslverify' => false,
  		'body'      => $api_params,
  	) );
 
- 	if ( is_wp_error( $cached ) ) {
+ 	if ( is_wp_error( $response ) ) {
  		return false;
  	}
 
- 	$license_data = json_decode( wp_remote_retrieve_body( $cached ) );
+ 	$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
  	if (  isset( $_GET['page'] ) && $_GET['page'] == 'fx-trads-license' && get_option('test_1_license_key') !== false ) {
 
