@@ -201,6 +201,8 @@ function test_1_activate_license() {
 		// decode the license data
 		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
+
+
 		// $license_data->license will be either "valid" or "invalid"
 
 		update_option( 'test_1_license_status', $license_data->license );
@@ -295,13 +297,55 @@ function test_1_check_license() {
 
 	$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
-	if ( $license_data->license == 'valid' ) {
-		echo 'valid';
-		exit;
-		// this license is still valid
-	} else {
-		echo 'invalid';
-		exit;
-		// this license is no longer valid
+	/*echo '<pre>';
+		print_r($license_data);
+	echo '</pre>';exit;*/
+
+	if (  isset( $_GET['page'] ) && $_GET['page'] == 'fx-trads-license' ) {
+
+		switch ( $license_data->license ) {
+
+			case 'valid' :
+			$message_class = 'update';
+			$message = __( 'This license is still valid', 'easy-digital-downloads' );
+			break;
+
+			case 'invalid' :
+			$message_class = 'error';
+			$message = __( 'This license is invalid', 'easy-digital-downloads' );
+			break;
+
+			case 'item_name_mismatch' :
+				$message_class = 'error';
+				$message = __( 'This license does not belong to the product you have entered it for.', 'easy-digital-downloads' );
+				break;
+
+			case 'no_activations_left' :
+				$message_class = 'error';
+				$message = __( 'This license does not have any activations left', 'easy-digital-downloads' );
+				break;
+
+			case 'expired' :
+				$message_class = 'error';
+				$message = __( 'This license key is expired. Please renew it.', 'easy-digital-downloads' );
+				break;
+
+			default :
+				$message_class = 'error';
+				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'easy-digital-downloads' ), $license_error->error );
+				break;
+
+		}
+
+		if ( ! empty( $message ) ) {
+
+			echo '<div class="' . $message_class . '">';
+			echo '<p>' . $message . '</p>';
+			echo '</div>';
+
+		}
+
 	}
+
 }
+add_action( 'admin_init', 'test_1_check_license' );
