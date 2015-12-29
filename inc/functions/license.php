@@ -25,6 +25,7 @@ function test_1_check_license() {
     if( false ===  $license_data ) {
 
       $license_data = edd_software_call( 'check_license', $license );
+      update_site_option( 'test_1_license_status', $license_data->license );
 
     }
 
