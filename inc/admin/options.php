@@ -37,21 +37,18 @@ function test_1_key_callback() {
 
 			<?php
 
-				if( $license !== false && $status !== false ) {
+				if( false !== $license ) {
 
-					$license_data = get_site_transient( '_test_1_licence_data' );
+					if( $status !== false && $status = 'valid' ) {
 
-					if( $license_data === false ) {
+						$license_data = get_site_transient( '_test_1_licence_data' );
+						echo test_1_action_remove_license( $license_data->expires );
 
-							$license_data = edd_software_call( 'check_license', $license );
+					} else {
+
+						echo test_1_action_add_license();
 
 					}
-
-					echo test_1_action_remove_license( $license_data->expires );
-
-				} else {
-
-					echo test_1_action_add_license();
 
 				}
 

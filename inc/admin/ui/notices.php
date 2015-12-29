@@ -10,6 +10,10 @@ function test_1_admin_notices() {
 
     switch ( $notice->license ) {
 
+      case 'invalid' :
+  			$message_class = 'error';
+  			$message = __( 'This license is not valid.', 'test1' );
+  			break;
 
   		case 'item_name_mismatch' :
   			$message_class = 'error';
