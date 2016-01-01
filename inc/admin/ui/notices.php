@@ -69,6 +69,10 @@ function ajax_notices() {
   			$message = __( 'This license key is expired. Please renew it.', 'test1' );
   			break;
 
+        default :
+  				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
+  				break;
+
   	}
 
     return $message;

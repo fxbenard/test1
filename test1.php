@@ -49,6 +49,9 @@ define( 'TEST_1_ASSETS_JS_URL'    		, TEST_1_ASSETS_URL . 'js/' );
 add_action( 'plugins_loaded', 'test_1_init' );
 function test_1_init() {
 
+	// Load translations
+	load_plugin_textdomain( 'test1', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
 	if ( is_admin() ) {
 
 		if ( ! class_exists( 'TEST_1_Plugin_Updater' ) ) {
@@ -64,5 +67,14 @@ function test_1_init() {
 		require ( TEST_1_FUNCTIONS_PATH . 'license.php' );
 
 	}
+
+}
+
+
+$license = get_site_option( 'test_1_license_key' );
+$status = get_site_option( 'test_1_license_status' );
+if( $license !== false && $status == 'valid' ) {
+
+
 
 }

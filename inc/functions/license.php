@@ -40,7 +40,7 @@ function test_1_check_license() {
       set_site_transient( '_test_1_license_data', $license_data, DAY_IN_SECONDS );
       update_site_option( 'test_1_license_status', $license_data->license );
 
-			if( $license_data->license != 'valid' ) {
+			if( $license_data->license == 'invalid' ) {
 
 				set_site_transient( '_test_1_license_error', $license_data->error );
 
@@ -69,15 +69,12 @@ function test_1_activate_license() {
 		}
 
 		$license_data = edd_software_call( 'activate_license', $license );
-
-		print_r($license_data);
-
 		update_site_option( 'test_1_license_status', $license_data->license );
-    set_site_transient( '_test_1_license_data', $license_data, DAY_IN_SECONDS );
 
 		if( $license_data->license == 'valid' ) {
 
-			delete_site_transient( '_test_1_license_error', $license_data->error );
+	    set_site_transient( '_test_1_license_data', $license_data, DAY_IN_SECONDS );
+			delete_site_transient( '_test_1_license_error' );
 			echo test_1_action_remove_license($license_data->expires);
 
 		} else {
@@ -107,8 +104,7 @@ function test_1_deactivate_license() {
 		 if (!wp_verify_nonce ( $nonce, 'test_1_nonce' )) {
 				wp_die(__('Cheatin&#8217; uh?'));
 		}
-		print_r($license_data);
-		// $license_data->license will be either "deactivated" or "failed"
+
 		if ( $license_data->license == 'deactivated' ) {
 
 			delete_site_option( 'test_1_license_key' );
