@@ -1,9 +1,13 @@
 <?php
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
+/**
+ * Setup the updater
+ *
+ * @since 1.0
+ */
 function test_1_plugin_updater() {
 
-	// retrieve our license key from the DB
 		$license_key = trim( get_option( 'test_1_license_key' ) );
 
 		// setup the updater
@@ -14,5 +18,6 @@ function test_1_plugin_updater() {
 			'author' 	=> 'fxbenard',
 			)
 		);
+		
 }
 add_action( 'admin_init', 'test_1_plugin_updater', 0 );

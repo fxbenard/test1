@@ -1,31 +1,50 @@
 <?php
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
+/**
+ * Delete options and transients when a new key is submitted
+ *
+ * @since 1.0
+ */
 function test_1_sanitize_license( $new ) {
 
 	$old = get_site_option( 'test_1_license_key' );
 
 	if ( $old && $old != $new ) {
 		delete_site_option( 'test_1_license_status' );
-		delete_site_transient( '_test_1_licence_data' );
+		delete_site_transient( '_test_1_license_data' );
+		delete_site_transient( '_test_1_license_error' );
 	}
 
 	return $new;
 
 }
 
+/**
+ * Check the EDD API for license statut check if transient exist
+ *
+ * @since 1.2
+ */
 function test_1_check_license() {
 
   $license = get_site_option( 'test_1_license_key' );
+  $status = get_site_option( 'test_1_license_status' );
 
   if( false !== $license && !empty( $license ) ) {
 
-    $license_data = get_site_transient( '_test_1_licence_data' );
+    $license_data = get_site_transient( '_test_1_license_data' );
 
     if( false ===  $license_data ) {
 
       $license_data = edd_software_call( 'check_license', $license );
+      set_site_transient( '_test_1_license_data', $license_data, DAY_IN_SECONDS );
       update_site_option( 'test_1_license_status', $license_data->license );
+
+			if( $license_data->license != 'valid' ) {
+
+				set_site_transient( '_test_1_license_error', $license_data->error );
+
+	    }
 
     }
 
@@ -34,11 +53,11 @@ function test_1_check_license() {
 }
 add_action( 'admin_init', 'test_1_check_license' );
 
-/************************************
- * this illustrates how to activate
- * a license key
- *************************************/
-
+/**
+ * Activate license
+ *
+ * @since 1.2
+ */
 function test_1_activate_license() {
 
 		$license = trim($_POST['license']);
@@ -51,27 +70,33 @@ function test_1_activate_license() {
 
 		$license_data = edd_software_call( 'activate_license', $license );
 
+		print_r($license_data);
+
+		update_site_option( 'test_1_license_status', $license_data->license );
+    set_site_transient( '_test_1_license_data', $license_data, DAY_IN_SECONDS );
+
 		if( $license_data->license == 'valid' ) {
 
-			update_site_option( 'test_1_license_key', $license );
-			update_site_option( 'test_1_license_status', $license_data->license );
+			delete_site_transient( '_test_1_license_error', $license_data->error );
 			echo test_1_action_remove_license($license_data->expires);
 
 		} else {
 
-			echo '<p style="color:red;"><span class="dashicons dashicons-info"></span> '. __('Licence is not valid !', 'test1') .'</p>';
-		}
+			set_site_transient( '_test_1_license_error', $license_data->error );
+			echo '<p style="color:red;"><span class="dashicons dashicons-info"></span> '. ajax_notices() .'</p>';
+
+    }
 
 		die();
 
 }
 add_action( 'wp_ajax_test_1_activate_license', 'test_1_activate_license' );
 
-/***********************************************
- * Illustrates how to deactivate a license key.
- * This will decrease the site count
- ***********************************************/
-
+/**
+ * Deactivate license
+ *
+ * @since 1.2
+ */
 function test_1_deactivate_license() {
 
 		$license = $_POST['license'];
@@ -82,13 +107,14 @@ function test_1_deactivate_license() {
 		 if (!wp_verify_nonce ( $nonce, 'test_1_nonce' )) {
 				wp_die(__('Cheatin&#8217; uh?'));
 		}
-
+		print_r($license_data);
 		// $license_data->license will be either "deactivated" or "failed"
 		if ( $license_data->license == 'deactivated' ) {
 
 			delete_site_option( 'test_1_license_key' );
 			delete_site_option( 'test_1_license_status' );
-			delete_site_transient ( '_test_1_licence_data' );
+			delete_site_transient ( '_test_1_license_data' );
+			delete_site_transient ( '_test_1_license_error' );
 
 		}
 

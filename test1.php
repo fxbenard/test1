@@ -3,7 +3,7 @@
  * Plugin Name:      EDD Test1
  * Plugin URI:      http://fxbenard.com/traductions/divi-builder-french
  * Description:     EDD Test1
- * Version: 1.0.0
+ * Version: 1.2
  * Author:          FX Bénard
  * Author URI:      https://fxbenard.com
  * Text Domain:     test1
@@ -24,8 +24,8 @@
 
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
-// Rocket defines
-define( 'TEST_1_VERSION'  						, '1.0.0' );
+// Test1 defines
+define( 'TEST_1_VERSION'  						, '1.2' );
 define( 'TEST_1_STORE_URL'						, 'https://fxbenard.com' ); // Store URL for API call
 define( 'TEST_1_ITEM_NAME'						, 'Test1' ); // Item Name for API call
 define( 'TEST_1_FILE'    							, __FILE__ );
@@ -40,6 +40,12 @@ define( 'TEST_1_FUNCTIONS_PATH'    		, realpath( TEST_1_INC_PATH . 'functions' )
 define( 'TEST_1_ASSETS_URL'    				,  TEST_1_URL . 'assets/' );
 define( 'TEST_1_ASSETS_JS_URL'    		, TEST_1_ASSETS_URL . 'js/' );
 
+
+/**
+ * Tell WP what to do when plugin is loaded
+ *
+ * @since 1.2
+ */
 add_action( 'plugins_loaded', 'test_1_init' );
 function test_1_init() {
 

@@ -2,8 +2,10 @@
 defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 
 /**
-* Load admin scripts
-*/
+ * Load admin scripts
+ *
+ * @since 1.2
+ */
 function load_admin_script() {
 
   $translation_array = array(

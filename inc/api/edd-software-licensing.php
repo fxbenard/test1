@@ -1,6 +1,14 @@
 <?php
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
+/**
+ * Make a http call to EDD software licensing API
+ *
+ * @since 1.2
+ *
+ * @param (string) $action (activate_license|check_license|delete_license)
+ * @param (string)
+ */
 function edd_software_call( $action, $key ) {
 
 		// data to send in our API request
@@ -27,8 +35,6 @@ function edd_software_call( $action, $key ) {
 
     // decode the license data
     $license_data = json_decode( wp_remote_retrieve_body( $remote_call ) );
-
-		set_site_transient( '_test_1_licence_data', $license_data, DAY_IN_SECONDS );
 
     return $license_data;
 

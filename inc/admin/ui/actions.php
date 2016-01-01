@@ -1,12 +1,22 @@
 <?php
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
+/**
+ * Ouput Activate license button
+ *
+ * @since 1.2
+ */
 function test_1_action_add_license() { ?>
 
 	<div style="display:table-cell; vertical-align:middle; width:20%;"><button type="button" id="test_1_license_activate" class="button-secondary"> <?php _e( 'Activate License', 'test1' ); ?></button><span class="spinner"></span></div>
 
 <?php }
 
+/**
+ * Ouput Dectivate license button and license informations
+ *
+ * @since 1.2
+ */
 function test_1_action_remove_license( $expires ) {
 
 			list( $date, $time ) = explode( " ", $expires );
