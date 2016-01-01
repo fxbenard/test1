@@ -75,6 +75,6 @@ $license = get_site_option( 'test_1_license_key' );
 $status = get_site_option( 'test_1_license_status' );
 if( $license !== false && $status == 'valid' ) {
 
-
+	// ADD YOUR STUFF HERE
 
 }
