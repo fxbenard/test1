@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:      EDD Test1
- * Plugin URI:      http://fxbenard.com/traductions/divi-builder-french
+ * Plugin URI:      http://fxbenard.com/traductions/test1
  * Description:     EDD Test1
  * Version: 1.2
  * Author:          FX Bénard
@@ -25,20 +25,20 @@
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
 // Test1 defines
-define( 'TEST_1_VERSION'  						, '1.2' );
-define( 'TEST_1_STORE_URL'						, 'https://fxbenard.com' ); // Store URL for API call
-define( 'TEST_1_ITEM_NAME'						, 'Test1' ); // Item Name for API call
-define( 'TEST_1_FILE'    							, __FILE__ );
-define( 'TEST_1_URL'    							, plugin_dir_url( TEST_1_FILE ) );
-define( 'TEST_1_PATH'    							, realpath( plugin_dir_path( TEST_1_FILE ) ) . '/' );
-define( 'TEST_1_INC_PATH'    					, realpath( TEST_1_PATH . 'inc' ) . '/' );
-define( 'TEST_1_CLASSES_PATH'    			, realpath( TEST_1_INC_PATH . 'classes' ) . '/' );
-define( 'TEST_1_ADMIN_PATH'    				, realpath( TEST_1_INC_PATH . 'admin' ) . '/' );
-define( 'TEST_1_ADMIN_UI_PATH'    		, realpath( TEST_1_ADMIN_PATH . 'ui' ) . '/' );
-define( 'TEST_1_API_PATH'    					, realpath( TEST_1_INC_PATH . 'api' ) . '/' );
-define( 'TEST_1_FUNCTIONS_PATH'    		, realpath( TEST_1_INC_PATH . 'functions' ) . '/' );
-define( 'TEST_1_ASSETS_URL'    				,  TEST_1_URL . 'assets/' );
-define( 'TEST_1_ASSETS_JS_URL'    		, TEST_1_ASSETS_URL . 'js/' );
+define( 'TEST_1_VERSION', '1.2' );
+define( 'TEST_1_STORE_URL', 'https://fxbenard.com' ); // Store URL for API call
+define( 'TEST_1_ITEM_NAME', 'Test1' ); // Item Name for API call
+define( 'TEST_1_FILE', __FILE__ );
+define( 'TEST_1_URL', plugin_dir_url( TEST_1_FILE ) );
+define( 'TEST_1_PATH', realpath( plugin_dir_path( TEST_1_FILE ) ) . '/' );
+define( 'TEST_1_INC_PATH', realpath( TEST_1_PATH . 'inc' ) . '/' );
+define( 'TEST_1_CLASSES_PATH', realpath( TEST_1_INC_PATH . 'classes' ) . '/' );
+define( 'TEST_1_ADMIN_PATH', realpath( TEST_1_INC_PATH . 'admin' ) . '/' );
+define( 'TEST_1_ADMIN_UI_PATH', realpath( TEST_1_ADMIN_PATH . 'ui' ) . '/' );
+define( 'TEST_1_API_PATH', realpath( TEST_1_INC_PATH . 'api' ) . '/' );
+define( 'TEST_1_FUNCTIONS_PATH', realpath( TEST_1_INC_PATH . 'functions' ) . '/' );
+define( 'TEST_1_ASSETS_URL',  TEST_1_URL . 'assets/' );
+define( 'TEST_1_ASSETS_JS_URL', TEST_1_ASSETS_URL . 'js/' );
 
 
 /**
@@ -73,7 +73,7 @@ function test_1_init() {
 
 $license = get_site_option( 'test_1_license_key' );
 $status = get_site_option( 'test_1_license_status' );
-if( $license !== false && $status == 'valid' ) {
+if ( $license !== false && $status == 'valid' ) {
 
 	// ADD YOUR STUFF HERE
 
