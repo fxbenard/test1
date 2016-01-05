@@ -25,7 +25,7 @@
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
 // Test1 defines
-define( 'TEST_1_VERSION', '1.2' );
+define( 'TEST_1_VERSION', '1.2.2' );
 define( 'TEST_1_STORE_URL', 'https://fxbenard.com' ); // Store URL for API call
 define( 'TEST_1_ITEM_NAME', 'Test1' ); // Item Name for API call
 define( 'TEST_1_FILE', __FILE__ );
