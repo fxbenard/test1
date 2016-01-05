@@ -33,9 +33,10 @@ function test_1_license_init_page() {
  */
 function test_1_key_callback() {
 
-	$license = get_site_option( 'test_1_license_key' );
-	$status = get_site_option( 'test_1_license_status' );
-  wp_nonce_field( 'test_1_nonce', 'test_1_nonce' ); ?>
+	$license = get_option( 'test_1_license_key' );
+	$status = get_option( 'test_1_license_status' );
+
+	?>
 
   <label>
 		<input type="text" id="test_1_license_key" class="regular-text" name="test_1_license_key" value="<?php echo esc_attr__( $license ); ?>"/>
@@ -46,15 +47,15 @@ function test_1_key_callback() {
 
 			<?php
 
-				if( false !== $license ) {
+				if ( false !== $license ) {
 
-					if( $status !== false && $status == 'valid' ) {
+					if ( $status !== false && $status == 'valid' ) {
 
-						$license_data = get_site_transient( '_test_1_license_data' );
+						$license_data = get_transient( '_test_1_license_data' );
 						echo test_1_action_remove_license( $license_data->expires );
 
 
-					} elseif( $status === false OR $status != 'invalid' ) {
+					} elseif ( $status === false OR $status != 'invalid' ) {
 
 						echo test_1_action_add_license();
 
@@ -74,8 +75,11 @@ function test_1_key_callback() {
  * @since 1.2
  */
 if ( ! function_exists( 'fx_trads_license_page' ) ) {
+
 	function fx_trads_license_page() {
+
 		global $title;
+
 		?>
 
 		<div class="wrap">
@@ -87,7 +91,9 @@ if ( ! function_exists( 'fx_trads_license_page' ) ) {
 					<?php do_settings_sections( 'fx-trads-license' ); ?>
 					<?php submit_button(); ?>
 			</form>
+
 		</div>
+		
 		<?php
 	}
 }

@@ -58,7 +58,6 @@ function test_1_init() {
 				require ( TEST_1_CLASSES_PATH . 'TEST_1_Plugin_Updater.php' );
 		}
 
-		require ( TEST_1_ADMIN_PATH . 'updater.php' );
 		require ( TEST_1_ADMIN_PATH . 'options.php' );
 		require ( TEST_1_ADMIN_PATH . 'enqueue.php' );
 		require ( TEST_1_ADMIN_UI_PATH . 'actions.php' );
@@ -69,6 +68,27 @@ function test_1_init() {
 	}
 
 }
+
+/**
+ * Setup the updater
+ *
+ * @since 1.0
+ */
+function test_1_plugin_updater() {
+
+		$license_key = trim( get_option( 'test_1_license_key' ) );
+
+		// setup the updater
+		$edd_updater = new TEST_1_Plugin_Updater( TEST_1_STORE_URL, __FILE__, array(
+			'version' 	=> TEST_1_VERSION,
+			'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
+			'item_name' => TEST_1_ITEM_NAME,
+			'author' 	=> 'fxbenard',
+			)
+		);
+
+}
+add_action( 'admin_init', 'test_1_plugin_updater', 0 );
 
 
 $license = get_site_option( 'test_1_license_key' );

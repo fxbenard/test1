@@ -9,9 +9,9 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 add_action( 'admin_notices', 'test_1_admin_notices' );
 function test_1_admin_notices() {
 
-  $notice = get_site_transient('_test_1_license_error');
+  $notice = get_transient('_test_1_license_error');
 
-  if( $notice !== false ) {
+  if ( $notice !== false ) {
 
     switch ( $notice ) {
 
@@ -29,6 +29,11 @@ function test_1_admin_notices() {
   			$message_class = 'error';
   			$message = __( 'This license key is expired. Please renew it.', 'test1' );
   			break;
+
+      default :
+				$message_class = 'error';
+				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
+				break;
 
   	}
 
@@ -51,9 +56,9 @@ function test_1_admin_notices() {
  */
 function ajax_notices() {
 
-  $notice = get_site_transient('_test_1_license_error');
+  $notice = get_transient('_test_1_license_error');
 
-  if( $notice !== false ) {
+  if ( $notice !== false ) {
 
     switch ( $notice ) {
 
