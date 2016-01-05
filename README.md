@@ -1,13 +1,13 @@
 # Test1 #
-**Contributors:** fxbenard  
+**Contributors:** fxbenard, G3ronim0  
 **Tags:** test, fxbenard  
 **Requires at least:** 3.8  
-**Tested up to:** 4.3  
-**Stable tag:** 1.0.0  
+**Tested up to:** 4.4  
+**Stable tag:** 1.2.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-Extensions de test1 pour EDD
+Extensions de test1 pour EDD Licensing
 
 ## Description ##
 
@@ -30,6 +30,14 @@ Extraire le fichier zip et déposez-le dans votre dossier wp-content/plugins/ de
 
 
 ## Changelog ##
+
+### 1.2.1 (01 janvier 2016) ###
+* Bump version
+* Testing licensing
+
+### 1.2.0 (01 janvier 2016) ###
+* Bump version
+* Réécriture complète et amélioration du système de licence, props @G3ronim0
 
 ### 1.1.0 (10 novembre 2015) ###
 * Bump version

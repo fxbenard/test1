@@ -3,7 +3,7 @@
  * Plugin Name:      EDD Test1
  * Plugin URI:      http://fxbenard.com/traductions/test1
  * Description:     EDD Test1
- * Version: 1.2
+ * Version: 1.2.1
  * Author:          FX Bénard
  * Author URI:      https://fxbenard.com
  * Text Domain:     test1
