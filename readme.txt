@@ -3,7 +3,7 @@ Contributors: fxbenard, G3ronim0
 Tags: test, fxbenard
 Requires at least: 3.8
 Tested up to: 4.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,10 @@ Extraire le fichier zip et déposez-le dans votre dossier wp-content/plugins/ de
 
 
 == Changelog ==
+
+= 1.2.2 (05 janvier 2016) =
+* Bump version
+* Bug fixes wp_remote timeout, EDD API site_inactive, multisite support... props @G3ronim0
 
 = 1.2.1 (01 janvier 2016) =
 * Bump version
