@@ -11,13 +11,21 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  */
 function edd_software_call( $action, $key ) {
 
-		// data to send in our API request
+	if ( $action == 'check_license' ) {
+		$api_params = array(
+			'edd_action' => $action,
+			'license'    => $key,
+			'item_name'  => urlencode( TEST_1_ITEM_NAME )
+
+		);
+	} else {
 		$api_params = array(
 			'edd_action' => $action,
 			'license'    => $key,
 			'item_name'  => urlencode( TEST_1_ITEM_NAME ), // the name of our product in EDD
 			'url'        => home_url()
 		);
+	}
 
     $args = array(
       'timeout'   => 15,
@@ -30,7 +38,9 @@ function edd_software_call( $action, $key ) {
 
     // make sure the response came back okay
     if ( is_wp_error( $remote_call ) ) {
-      return false;
+			$error_message = $remote_call->get_error_message();
+			$response_code = wp_remote_retrieve_response_code( $remote_call );
+   		return 'Something went wrong: '.$error_message . $response_code;
     }
 
     // decode the license data
