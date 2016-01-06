@@ -36,7 +36,7 @@ function test_1_check_license() {
 
     if ( false ===  $license_data ) {
 
-      $license_data = edd_software_call( 'check_license', $license );
+      $license_data = test_1_edd_software_call( 'check_license', $license );
 
 			if ( $license_data->license == 'invalid' ) {
 
@@ -71,7 +71,7 @@ function test_1_activate_license() {
 			wp_die( __( 'Cheatin&#8217; uh?', 'test1' ) );
 		}
 
-		$license_data = edd_software_call( 'activate_license', $license );
+		$license_data = test_1_edd_software_call( 'activate_license', $license );
 		update_option( 'test_1_license_status', $license_data->license );
 
 		if ( $license_data->license == 'valid' ) {
@@ -83,7 +83,7 @@ function test_1_activate_license() {
 		} else {
 
 			set_transient( '_test_1_license_error', $license_data->error );
-			echo '<p style="color:red;"><span class="dashicons dashicons-info"></span> '. ajax_notices() .'</p>';
+			echo '<p style="color:red;"><span class="dashicons dashicons-info"></span> '. test_1_ajax_notices() .'</p>';
 
     }
 
@@ -107,7 +107,7 @@ function test_1_deactivate_license() {
 			wp_die( __( 'Cheatin&#8217; uh?', 'test1' ) );
 		}
 
-		$license_data = edd_software_call( 'deactivate_license', $license );
+		$license_data = test_1_edd_software_call( 'deactivate_license', $license );
 
 		if ( $license_data->license == 'deactivated' ) {
 
