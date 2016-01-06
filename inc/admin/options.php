@@ -8,7 +8,13 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  */
 if ( ! function_exists( 'fx_trads_license_menu' ) ) {
 	function fx_trads_license_menu() {
-		add_plugins_page( __( 'FX Trads License Options', 'test1' ), __( 'FX Trads', 'test1' ), 'manage_options', 'fx-trads-license', 'fx_trads_license_page' );
+		add_plugins_page(
+			__( 'FX Trads License Options', 'test1' ),
+		 	__( 'FX Trads', 'test1' ),
+			'manage_options',
+			'fx-trads-license',
+			'fx_trads_license_page'
+		);
 	}
 
 	add_action( 'admin_menu', 'fx_trads_license_menu' );
@@ -21,9 +27,24 @@ if ( ! function_exists( 'fx_trads_license_menu' ) ) {
  */
 add_action( 'admin_init', 'test_1_license_init_page' );
 function test_1_license_init_page() {
-		register_setting( 'test_1_license', 'test_1_license_key', 'test_1_sanitize_license' );
-		add_settings_section( 'section-test1',   '', '',  'fx-trads-license' );
-		add_settings_field( 'test_1_key',  esc_html__( 'Test-1',  'test1' ), 'test_1_key_callback', 'fx-trads-license', 'section-test1' );
+		register_setting(
+			'fx_trads_license',
+			'test_1_license_key',
+			'test_1_sanitize_license'
+		);
+		add_settings_section(
+			'section-test1',
+			'',
+			'',
+			'fx-trads-license'
+		);
+		add_settings_field(
+			'test_1_key',
+			esc_html__( 'Test-1',  'test1' ),
+			'test_1_key_callback',
+			'fx-trads-license',
+			'section-test1'
+		);
 }
 
 /**
@@ -87,13 +108,13 @@ if ( ! function_exists( 'fx_trads_license_page' ) ) {
 
 			<form action="options.php" method="POST">
 
-					<?php settings_fields( 'test_1_license' ); ?>
+					<?php settings_fields( 'fx_trads_license' ); ?>
 					<?php do_settings_sections( 'fx-trads-license' ); ?>
 					<?php submit_button(); ?>
 			</form>
 
 		</div>
-		
+
 		<?php
 	}
 }
