@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:      EDD Test1
+ * Plugin Name:      EDD Test2
  * Plugin URI:      http://fxbenard.com/traductions/fx1
- * Description:     EDD Test1
+ * Description:     EDD Test2
  * Version: 1.2.2
  * Author:          FX Bénard
  * Author URI:      https://fxbenard.com
@@ -15,7 +15,7 @@
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @package         Test1
+ * @package         Test2
  * @author          FX Bénard <fx@fxbenard.com>
  * @copyright       Copyright (c) 2015 FX Bénard
  * @license         http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -24,10 +24,10 @@
 
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
-// Test1 defines
+// Test2 defines
 define( 'TEST_2_VERSION', '1.2.2' );
 define( 'TEST_2_STORE_URL', 'https://fxbenard.com' ); // Store URL for API call
-define( 'TEST_2_ITEM_NAME', 'Test1' ); // Item Name for API call
+define( 'TEST_2_ITEM_NAME', 'Test2' ); // Item Name for API call
 define( 'TEST_2_FILE', __FILE__ );
 define( 'TEST_2_URL', plugin_dir_url( TEST_2_FILE ) );
 define( 'TEST_2_PATH', realpath( plugin_dir_path( TEST_2_FILE ) ) . '/' );
