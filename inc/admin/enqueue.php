@@ -6,19 +6,19 @@ defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
  *
  * @since 1.2
  */
-function test_1_load_admin_script() {
+function test_2_load_admin_script() {
 
   $translation_array = array(
-  	'license_deactivate' => __( 'License deactivate', 'test1' ),
+  	'license_deactivate' => __( 'License deactivate', 'fx1' ),
   );
 
-  wp_enqueue_script( 'test1-script', TEST_1_ASSETS_JS_URL . 'test1-script.js', array( 'jquery' ), '1.0.0', false );
+  wp_enqueue_script( 'fx1-script', TEST_2_ASSETS_JS_URL . 'fx1-script.js', array( 'jquery' ), '1.0.0', false );
 
-  wp_localize_script( 'test1-script', 'Test1Ajax', array (
+  wp_localize_script( 'fx1-script', 'Test2Ajax', array (
       'ajaxurl' => admin_url( 'admin-ajax.php' ),
       'license_deactivate'=> $translation_array,
-      'test_1_nonce' => wp_create_nonce( 'test-1-nonce' ),
+      'test_2_nonce' => wp_create_nonce( 'test-2-nonce' ),
   ) );
 
 }
-add_action( 'admin_enqueue_scripts', 'test_1_load_admin_script' );
+add_action( 'admin_enqueue_scripts', 'test_2_load_admin_script' );

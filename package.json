@@ -37,7 +37,7 @@
   },
   "pot": {
     "type": "wp-plugin",
-    "textdomain": "test1",
+    "textdomain": "fx1",
     "tdsource": "",
     "src": "test1.php",
     "header": {
@@ -50,7 +50,11 @@
     "ver": "TEST_1_VER",
     "dir": "TEST_1_DIR",
     "url": "TEST_1_URL",
-    "cst": "T1"
+    "cst": "T1",
+    "T_1": "TEST_1",
+   " T1": "Test1",
+   " t_1": "test_1",
+    "t1": "test1"
   },
   "devDependencies": {
     "grunt": "*",

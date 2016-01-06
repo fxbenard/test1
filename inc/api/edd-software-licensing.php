@@ -9,20 +9,20 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  * @param (string) $action (activate_license|check_license|delete_license)
  * @param (string)
  */
-function test_1_edd_software_call( $action, $key ) {
+function test_2_edd_software_call( $action, $key ) {
 
 	if ( $action == 'check_license' ) {
 		$api_params = array(
 			'edd_action' => $action,
 			'license'    => $key,
-			'item_name'  => urlencode( TEST_1_ITEM_NAME )
+			'item_name'  => urlencode( TEST_2_ITEM_NAME )
 
 		);
 	} else {
 		$api_params = array(
 			'edd_action' => $action,
 			'license'    => $key,
-			'item_name'  => urlencode( TEST_1_ITEM_NAME ), // the name of our product in EDD
+			'item_name'  => urlencode( TEST_2_ITEM_NAME ), // the name of our product in EDD
 			'url'        => home_url()
 		);
 	}
@@ -34,7 +34,7 @@ function test_1_edd_software_call( $action, $key ) {
     );
 
     // Call the custom API.
-    $remote_call = wp_remote_post( add_query_arg( $api_params, TEST_1_STORE_URL ), $args );
+    $remote_call = wp_remote_post( add_query_arg( $api_params, TEST_2_STORE_URL ), $args );
 
     // make sure the response came back okay
     if ( is_wp_error( $remote_call ) ) {
