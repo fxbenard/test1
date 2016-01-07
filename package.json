@@ -52,10 +52,13 @@
     "dir": "TEST_1_DIR",
     "url": "TEST_1_URL",
     "cst": "T1",
-    "T_1": "TEST_1",
-   " T1": "Test1",
-   " t_1": "test_1",
-    "t1": "test1"
+    "TEST_1": "PLUGIN_FRENCH",
+    "TEST1": "PLUGINFRENCH",
+    "TEST-1": "PLUGIN-FRENCH",
+    "Test-1": "Plugin-French",
+    "test_1": "plugin_french",
+    "test-1": "plugin-french",
+    "Test1Ajax": "PluginFrenchAjax"
   },
   "devDependencies": {
     "grunt": "*",
