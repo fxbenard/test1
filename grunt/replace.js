@@ -29,13 +29,13 @@ module.exports = {
         overwrite: true,
         replacements: [{
           from: 'TEST_2',
-          to: '<%= pkg.cst.TEST_1 %>'
+          to: '<%= pkg.constant.TEST_1 %>'
         },{
           from: 'TEST2',
-          to: '<%= pkg.cst.TEST1 %>'
+          to: '<%= pkg.constant.TEST1 %>'
         },{
           from: 'Test-2',
-          to: '<%= pkg.cst.Test-1 %>'
+          to: '<%= pkg.constant.Test-1 %>'
         },{
           from: 'Test2',
           to: '<%= pkg.slug %>'
@@ -44,13 +44,13 @@ module.exports = {
           to: '<%= pkg.pot.textdomain %>'
         },{
           from: 'test_2',
-          to: '<%= pkg.cst.test_1 %>'
+          to: '<%= pkg.constant.test_1 %>'
         },{
           from: 'test-2',
-          to: '<%= pkg.cst.test-1 %>'
+          to: '<%= pkg.constant.test-1 %>'
         },{
           from: 'Test2Ajax',
-          to: '<%= pkg.cst.Test1Ajax %>'
+          to: '<%= pkg.constant.Test1Ajax %>'
         }]
       }
     };
