@@ -27,7 +27,7 @@ function test_1_sanitize_license( $new ) {
  */
 function test_1_check_license() {
 
-  $license = get_option( 'test_1_license_key' );
+  $license = trim( get_option( 'test_1_license_key' ) );
   $status = get_option( 'test_1_license_status' );
 
   if ( false !== $license && !empty( $license ) ) {
@@ -72,6 +72,7 @@ function test_1_activate_license() {
 		}
 
 		$license_data = test_1_edd_software_call( 'activate_license', $license );
+
 		update_option( 'test_1_license_status', $license_data->license );
 
 		if ( $license_data->license == 'valid' ) {
