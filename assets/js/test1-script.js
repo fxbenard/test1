@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
         },
         success: function(response) {
           $('#spinner-test-2').removeClass('is-active');
-          $('#fx1-reponse').html(response);
+          $('#test2-reponse').html(response);
         }
 
       });
@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
       },
       success: function(response) {
         $('#spinner-test-2').removeClass('is-active');
-        $('#fx1-reponse').html(response);
+        $('#test2-reponse').html(response);
         $('#test_2_license_key').val('');
         $('h1').after('<div class="updated"><p>' + Test2Ajax.license_deactivate.license_deactivate + '</p></div>');
       }

@@ -9,8 +9,8 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 if ( ! function_exists( 'fx_trads_license_menu' ) ) {
 	function fx_trads_license_menu() {
 		add_plugins_page(
-			__( 'FX Trads License Options', 'fx1' ),
-		 	__( 'FX Trads', 'fx1' ),
+			__( 'FX Trads License Options', 'test2' ),
+		 	__( 'FX Trads', 'test2' ),
 			'manage_options',
 			'fx-trads-license',
 			'fx_trads_license_page'
@@ -33,17 +33,17 @@ function test_2_license_init_page() {
 			'test_2_sanitize_license'
 		);
 		add_settings_section(
-			'section-fx1',
+			'section-test2',
 			'',
 			'',
 			'fx-trads-license'
 		);
 		add_settings_field(
 			'test_2_key',
-			esc_html__( 'Test-2',  'fx1' ),
+			esc_html__( 'Test-2',  'test2' ),
 			'test_2_key_callback',
 			'fx-trads-license',
-			'section-fx1'
+			'section-test2'
 		);
 }
 
@@ -61,10 +61,10 @@ function test_2_key_callback() {
 
   <label>
 		<input type="text" id="test_2_license_key" class="regular-text" name="test_2_license_key" value="<?php echo esc_attr__( $license ); ?>"/>
-		<span style="vertical-align: middle;" class="dashicons dashicons-admin-network"></span> <?php echo __( 'Enter your license key', 'fx1' ); ?>
+		<span style="vertical-align: middle;" class="dashicons dashicons-admin-network"></span> <?php echo __( 'Enter your license key', 'test2' ); ?>
 	</label>
 
-		<div id="fx1-reponse" style="width:600px; padding-top:1em;">
+		<div id="test2-reponse" style="width:600px; padding-top:1em;">
 
 			<?php
 

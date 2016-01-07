@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name:      EDD Test2
- * Plugin URI:      http://fxbenard.com/traductions/fx1
+ * Plugin URI:      http://fxbenard.com/traductions/test2
  * Description:     EDD Test2
  * Version: 1.2.2
  * Author:          FX Bénard
  * Author URI:      https://fxbenard.com
- * Text Domain:     fx1
+ * Text Domain:     test2
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
  * General Public License version 2, as published by the Free Software Foundation. You may NOT assume
@@ -50,7 +50,7 @@ add_action( 'plugins_loaded', 'test_2_init' );
 function test_2_init() {
 
 	// Load translations
-	load_plugin_textdomain( 'fx1', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	load_plugin_textdomain( 'test2', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 	if ( is_admin() ) {
 

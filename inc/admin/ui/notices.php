@@ -17,22 +17,22 @@ function test_2_admin_notices() {
 
       case 'item_name_mismatch' :
   			$message_class = 'error';
-  			$message = __( 'This license does not belong to the product you have entered it for.', 'fx1' );
+  			$message = __( 'This license does not belong to the product you have entered it for.', 'test2' );
   			break;
 
   		case 'no_activations_left' :
   			$message_class = 'error';
-  			$message = __( 'This license does not have any activations left', 'fx1' );
+  			$message = __( 'This license does not have any activations left', 'test2' );
   			break;
 
   		case 'expired' :
   			$message_class = 'error';
-  			$message = __( 'This license key is expired. Please renew it.', 'fx1' );
+  			$message = __( 'This license key is expired. Please renew it.', 'test2' );
   			break;
 
       default :
 				$message_class = 'error';
-				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'fx1' ), $notice );
+				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test2' ), $notice );
 				break;
 
   	}
@@ -63,19 +63,19 @@ function test_2_ajax_notices() {
     switch ( $notice ) {
 
       case 'item_name_mismatch' :
-  			$message = __( 'This license does not belong to the product you have entered it for.', 'fx1' );
+  			$message = __( 'This license does not belong to the product you have entered it for.', 'test2' );
   			break;
 
   		case 'no_activations_left' :
-  			$message = __( 'This license does not have any activations left', 'fx1' );
+  			$message = __( 'This license does not have any activations left', 'test2' );
   			break;
 
   		case 'expired' :
-  			$message = __( 'This license key is expired. Please renew it.', 'fx1' );
+  			$message = __( 'This license key is expired. Please renew it.', 'test2' );
   			break;
 
         default :
-  				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'fx1' ), $notice );
+  				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test2' ), $notice );
   				break;
 
   	}

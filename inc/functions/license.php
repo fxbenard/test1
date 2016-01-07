@@ -1,6 +1,6 @@
 <?php
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
-fx1
+
 /**
  * Delete options and transients when a new key is submitted
  *
@@ -68,7 +68,7 @@ function test_2_activate_license() {
 
 		// run a quick security check
 		if ( ! wp_verify_nonce( $nonce, 'test-2-nonce' ) ) {
-			wp_die( __( 'Cheatin&#8217; uh?', 'fx1' ) );
+			wp_die( __( 'Cheatin&#8217; uh?', 'test2' ) );
 		}
 
 		$license_data = test_2_edd_software_call( 'activate_license', $license );
@@ -104,7 +104,7 @@ function test_2_deactivate_license() {
 
 		// run a quick security check
 		if ( ! wp_verify_nonce( $nonce, 'test-2-nonce' ) ) {
-			wp_die( __( 'Cheatin&#8217; uh?', 'fx1' ) );
+			wp_die( __( 'Cheatin&#8217; uh?', 'test2' ) );
 		}
 
 		$license_data = test_2_edd_software_call( 'deactivate_license', $license );
