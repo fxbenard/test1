@@ -35,7 +35,7 @@ module.exports = {
           to: '<%= pkg.constant.TEST1 %>'
         },{
           from: 'Test-2',
-          to: '<%= pkg.constant.Test-1 %>'
+          to: 'Test-1'
         },{
           from: 'Test2',
           to: '<%= pkg.slug %>'
@@ -47,10 +47,13 @@ module.exports = {
           to: '<%= pkg.constant.test_1 %>'
         },{
           from: 'test-2',
-          to: '<%= pkg.constant.test-1 %>'
+          to: 'test-1'
         },{
           from: 'Test2Ajax',
           to: '<%= pkg.constant.Test1Ajax %>'
+        },{
+          from: 'spinner-test-2',
+          to: 'spinner-test-1'
         }]
       }
     };
