@@ -3,7 +3,7 @@
   "version": "1.2.2",
   "description": "EDD Test1",
   "homepage": "https://fxbenard.com/",
-  "slug": "Test2",
+  "slug": "Plugin French",
   "author": {
     "name": "FX Bénard",
     "email": "fx@fxbenard.com",
@@ -38,7 +38,7 @@
   },
   "pot": {
     "type": "wp-plugin",
-    "textdomain": "fx1",
+    "textdomain": "plugin-french",
     "tdsource": "",
     "src": "test1.php",
     "header": {
