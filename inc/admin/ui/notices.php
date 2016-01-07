@@ -39,8 +39,8 @@ function test_1_admin_notices() {
 
   	if ( ! empty( $message ) ) { ?>
 
-  		<div class="<?php echo $message_class; ?>">
-  		    <p><?php echo $message; ?></p>
+  		<div class="<?php echo $message_class; ?> notice is-dismissible">
+  		    <p><?php echo TEST_1_ITEM_NICE_NAME.' : ' .$message; ?></p>
   		</div>
 
   	<?php }
