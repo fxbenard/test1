@@ -2,6 +2,12 @@
 module.exports = function (grunt) {
 		// Return the configurations
 		return {
+			init: {
+				options: {
+					title: "Grunt Init",
+					message: '"<%= pkg.name %>" is now ready!'
+				}
+			},
 			bump: {
 				options: {
 					title: "Grunt Bump it Up",
