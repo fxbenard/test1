@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * @author Pippin Williamson
  * @version 1.6.3
  */
-class TEST_2_Plugin_Updater {
+class TEST_1_Plugin_Updater {
 	private $api_url   = '';
 	private $api_data  = array();
 	private $name      = '';
@@ -182,14 +182,14 @@ class TEST_2_Plugin_Updater {
 
 			if ( empty( $version_info->download_link ) ) {
 				printf(
-					__( 'There is a new version of %1$s available. <a target="_blank" class="thickbox" href="%2$s">View version %3$s details</a>.', 'test2' ),
+					__( 'There is a new version of %1$s available. <a target="_blank" class="thickbox" href="%2$s">View version %3$s details</a>.', 'test1' ),
 					esc_html( $version_info->name ),
 					esc_url( $changelog_link ),
 					esc_html( $version_info->new_version )
 				);
 			} else {
 				printf(
-					__( 'There is a new version of %1$s available. <a target="_blank" class="thickbox" href="%2$s">View version %3$s details</a> or <a href="%4$s">update now</a>.', 'test2' ),
+					__( 'There is a new version of %1$s available. <a target="_blank" class="thickbox" href="%2$s">View version %3$s details</a> or <a href="%4$s">update now</a>.', 'test1' ),
 					esc_html( $version_info->name ),
 					esc_url( $changelog_link ),
 					esc_html( $version_info->new_version ),
@@ -329,7 +329,7 @@ class TEST_2_Plugin_Updater {
 		}
 
 		if ( ! current_user_can( 'update_plugins' ) ) {
-			wp_die( __( 'You do not have permission to install plugin updates', 'test2' ), __( 'Error', 'test2' ), array( 'response' => 403 ) );
+			wp_die( __( 'You do not have permission to install plugin updates', 'test1' ), __( 'Error', 'test1' ), array( 'response' => 403 ) );
 		}
 
 		$data         = $edd_plugin_data[ $_REQUEST['slug'] ];
