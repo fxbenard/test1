@@ -4,7 +4,11 @@
 'init':
 - 'replace'
 - 'rename'
+- 'clean'
+- 'checktextdomain'
+- 'makepot'
 - 'phpcs'
+- 'notify:init'
 # Bump version task(s)
 'bumpit':
 - 'replace:readme_text'
