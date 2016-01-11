@@ -25,34 +25,34 @@ module.exports = {
         }]
       },
         all: {
-        src: ['*.php', '**/*.php', '!node_modules/**/*.php', 'assets/js/*js'],
+        src: ['*.php', '**/*.php', '!node_modules/**/*.php', 'assets/js/*js', '!build/**/*'],
         overwrite: true,
         replacements: [{
-          from: 'TEST_2',
+          from: 'TEST_1',
           to: '<%= pkg.constant.TEST_1 %>'
         },{
-          from: 'TEST2',
+          from: 'TEST1',
           to: '<%= pkg.constant.TEST1 %>'
         },{
-          from: 'Test-2',
+          from: 'Test-1',
           to: 'Plugin-French'
         },{
-          from: 'Test2',
+          from: 'Test1',
           to: '<%= pkg.slug %>'
         },{
-          from: 'test2',
+          from: 'test1',
           to: '<%= pkg.pot.textdomain %>'
         },{
-          from: 'test_2',
+          from: 'test_1',
           to: '<%= pkg.constant.test_1 %>'
         },{
-          from: 'test-2',
+          from: 'test-1',
           to: 'plugin-french'
         },{
-          from: 'Test2Ajax',
+          from: 'Test1Ajax',
           to: '<%= pkg.constant.Test1Ajax %>'
         },{
-          from: 'spinner-test-2',
+          from: 'spinner-test-1',
           to: 'spinner-plugin-french'
         }]
       }
