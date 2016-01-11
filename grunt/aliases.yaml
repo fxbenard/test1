@@ -1,8 +1,14 @@
 # Grunt aliases
 ---
-# Checktextdomain and makepot task(s)
-'bumpit':
+# Init task(s)
+'init':
 - 'replace'
+- 'rename'
+- 'phpcs'
+# Bump version task(s)
+'bumpit':
+- 'replace:readme_text'
+- 'replace:main_php'
 - 'wp_readme_to_markdown'
 - 'notify:bump'
 # Checktextdomain and makepot task(s)
