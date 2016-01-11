@@ -23,7 +23,7 @@
 - 'notify:i18n'
 # Build everything
 build:
-- 'clean'
+- 'clean:build'
 - 'copy'
 - 'compress'
 - 'notify:build'
