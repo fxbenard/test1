@@ -1,7 +1,7 @@
 {
   "name": "test1",
   "version": "1.2.2",
-  "description": "EDD Test1",
+  "description": "A simple test plugin",
   "homepage": "https://fxbenard.com/",
   "slug": "Plugin French",
   "author": {
@@ -48,10 +48,6 @@
     }
   },
   "constant": {
-    "ver": "TEST_1_VER",
-    "dir": "TEST_1_DIR",
-    "url": "TEST_1_URL",
-    "cst": "T1",
     "TEST_1": "PLUGIN_FRENCH",
     "TEST1": "PLUGINFRENCH",
     "TEST-1": "PLUGIN-FRENCH",
