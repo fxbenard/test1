@@ -66,6 +66,7 @@
     "grunt-contrib-clean": "*",
     "grunt-contrib-compress": "*",
     "grunt-contrib-copy": "*",
+    "grunt-contrib-rename": "*",
     "grunt-exec": "*",
     "grunt-newer": "*",
     "grunt-notify": "*",
