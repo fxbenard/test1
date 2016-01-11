@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
           $('#test-1-reponse').html(response);
         },
         fail: function() {
-          $('h1').after('<div class="error"><p>Please try again soon.</p></div>');
+          $('h1').after('<div class="error"><p>' + test_1_ajax.ajax_fail.ajax_fail + '</p></div>');
         }
 
       });
@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
         $('h1').after('<div class="updated notice is-dismissible"><p>' + test_1_ajax.license_deactivate.license_deactivate + '</p></div>');
       },
       fail: function() {
-        $('h1').after('<div class="error"><p>Please try again soon.</p></div>');
+        $('h1').after('<div class="error"><p>' + test_1_ajax.ajax_fail.ajax_fail + '</p></div>');
       }
     });
 
