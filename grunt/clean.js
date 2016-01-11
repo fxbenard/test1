@@ -1,3 +1,5 @@
+//https://github.com/gruntjs/grunt-contrib-clean
 module.exports = {
-	main: ['build/<%= pkg.name %>']
+	init: ["languages/**/*"],
+	build: ['build/<%= pkg.name %>']
 };
