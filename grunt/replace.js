@@ -5,9 +5,6 @@ module.exports = {
         replacements: [{
           from: /Stable tag: (.*)/,
           to: "Stable tag: <%= pkg.version %>"
-        },{
-          from: 'test1',
-          to: 'test2'
         }]
       },
       main_php: {
@@ -22,7 +19,10 @@ module.exports = {
         },{
           from: / Text Domain:\s*(.*)/,
           to: " Text Domain:     <%= pkg.pot.textdomain %>"
-        }]
+        },{
+          from: /'TEST_1_VERSION',\s*(.*)/,
+              to: "'<%= pkg.constant.TEST_1 %>_VERSION', '<%= pkg.version %>' );"
+    }]
       },
         all: {
         src: ['*.php', '**/*.php', '!node_modules/**/*.php', 'assets/js/*js', '!build/**/*'],
