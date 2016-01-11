@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EDD Test1 1.2\n"
 "Report-Msgid-Bugs-To: https://fxbenard.com/\n"
-"POT-Creation-Date: 2016-01-06 16:54:26+00:00\n"
-"PO-Revision-Date: 2016-01-05 13:30+0100\n"
+"POT-Creation-Date: 2016-01-11 22:57:21+00:00\n"
+"PO-Revision-Date: 2016-01-12 00:01+0100\n"
 "Last-Translator: FX Bénard <fx@fxbenard.com>\n"
 "Language-Team: fxbenard <fx@fxbenard.com>\n"
 "Language: fr_FR\n"
@@ -26,6 +26,10 @@ msgstr ""
 msgid "License deactivate"
 msgstr "Licence désactivée"
 
+#: inc/admin/enqueue.php:13
+msgid "Please try again soon."
+msgstr "Veuillez réessayer plus tard."
+
 #: inc/admin/options.php:12
 msgid "FX Trads License Options"
 msgstr "FX Trads Options de licence"
@@ -33,14 +37,6 @@ msgstr "FX Trads Options de licence"
 #: inc/admin/options.php:13
 msgid "FX Trads"
 msgstr "FX Trads"
-
-#: inc/admin/options.php:43
-msgid "Test-1"
-msgstr "Test-1"
-
-#: inc/admin/options.php:64
-msgid "Enter your license key"
-msgstr "Saisissez votre clé de licence"
 
 #: inc/admin/ui/actions.php:11
 msgid "Activate License"
@@ -83,6 +79,19 @@ msgstr ""
 "Une erreur s’est produite lors de l’activation de votre clé de licence, "
 "veuillez réessayer ou contactez le support. Code d’erreur : %s"
 
+#: inc/admin/ui/options.php:18
+msgid "Enter your license key"
+msgstr "Saisissez votre clé de licence"
+
+#: inc/api/edd-software-licensing.php:40
+msgid ""
+"<p style=\"color:red;\"><span class=\"dashicons dashicons-info\"></"
+"span>There is a problem with remote site, please try again. %s</p>"
+msgstr ""
+"<p style=\"color:red;\"><span class=\"dashicons dashicons-info\"></span>Il y "
+"a un problème avec le serveur distant, veuillez réessayer ultérieuement. %s</"
+"p>"
+
 #: inc/classes/TEST_1_Plugin_Updater.php:185
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
@@ -111,10 +120,13 @@ msgstr ""
 msgid "Error"
 msgstr "Erreur"
 
-#: inc/functions/license.php:71 inc/functions/license.php:107
+#: inc/functions/license.php:71 inc/functions/license.php:108
 msgid "Cheatin&#8217; uh?"
 msgstr "Alors, on triche ?"
 
 #. Description of the plugin/theme
 msgid "EDD Test1"
 msgstr "EDD Test1"
+
+#~ msgid "Test-1"
+#~ msgstr "Test-1"
