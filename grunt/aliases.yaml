@@ -7,7 +7,6 @@
 - 'clean'
 - 'checktextdomain'
 - 'makepot'
-- 'phpcs'
 - 'notify:init'
 # Bump version task(s)
 'bumpit':
