@@ -18,9 +18,5 @@ module.exports = {
 			'!**/*~'
 			],
 		dest: 'build/<%= pkg.name %>/'
-	},
-	  init: {
-    src: 'test1.php',
-    dest: 'test2.php',
-  }
+	}
 };
