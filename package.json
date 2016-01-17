@@ -1,9 +1,12 @@
 {
   "name": "test1",
   "version": "1.2.2",
-  "description": "A simple test plugin",
+  "description": "French Translations for Test 1",
   "homepage": "https://fxbenard.com/",
-  "slug": "Plugin French",
+  "slug": "Test 1",
+  "nicename": "Test 1",
+  "tags": "français, fxbenard",
+  "upto": "4.4.1",
   "author": {
     "name": "FX Bénard",
     "email": "fx@fxbenard.com",
@@ -38,8 +41,8 @@
   },
   "pot": {
     "type": "wp-plugin",
-    "textdomain": "plugin-french",
-    "tdsource": "",
+    "textdomain": "test1",
+    "tdsource": "test1",
     "src": "test1.php",
     "header": {
       "bugs": "https://fxbenard.com/",
@@ -48,13 +51,13 @@
     }
   },
   "constant": {
-    "TEST_1": "PLUGIN_FRENCH",
-    "TEST1": "PLUGINFRENCH",
-    "TEST-1": "PLUGIN-FRENCH",
-    "Test-1": "Plugin-French",
-    "test_1": "plugin_french",
-    "test-1": "plugin-french",
-    "Test1Ajax": "PluginFrenchAjax"
+    "TEST_1": "TEST_1",
+    "TEST1": "TEST1",
+    "TEST-1": "TEST-1",
+    "Test-1": "Test-1",
+    "test_1": "test_1",
+    "test-1": "test-1",
+    "test": "test-1"
   },
   "devDependencies": {
     "grunt": "*",
@@ -66,7 +69,6 @@
     "grunt-exec": "*",
     "grunt-newer": "*",
     "grunt-notify": "*",
-    "grunt-phpcs": "*",
     "grunt-potomo": "*",
     "grunt-text-replace": "*",
     "grunt-wp-i18n": "*",
