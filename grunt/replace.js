@@ -19,16 +19,16 @@ module.exports = {
 		overwrite: true,
 		replacements: [{
 			from: / Plugin Name:\s*(.*)/,
-			to: " Plugin Name: <%= pkg.slug %>"
+			to: " Plugin Name:      <%= pkg.slug %>"
 		},{
 			from: / Version:\s*(.*)/,
-			to: " Version: <%= pkg.version %>"
+			to: " Version:      <%= pkg.version %>"
 		},{
 			from: / Description:\s*(.*)/,
-			to: " Description:     <%= pkg.description %>"
+			to: " Description:      <%= pkg.description %>"
 		},{
 			from: / Text Domain:\s*(.*)/,
-			to: " Text Domain:     <%= pkg.pot.textdomain %>"
+			to: " Text Domain:      <%= pkg.pot.textdomain %>"
 		},{
 			from: /'TEST_1_VERSION',\s*(.*)/,
 			to: "'<%= pkg.constant.TEST_1 %>_VERSION', '<%= pkg.version %>' );"
