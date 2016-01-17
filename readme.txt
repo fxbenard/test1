@@ -7,11 +7,11 @@ Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Test1 est une extension de traduction pour Test 1
+Test 1 est une extension de traduction pour Test 1
 
 == Description ==
 
-Test1 est une extension de traduction française pour [Test 1](https://fxbenard.com/recommande/test-1/).
+Test 1 est une extension de traduction française pour [Test 1](https://fxbenard.com/recommande/test-1/).
 
 
 == Support ==
@@ -26,14 +26,13 @@ Ou directement par e-mail : fx@fxbenard.com.
 Direction Extension > Ajouter > Mettre une extension en ligne > Selectionner le fichier zip préalablement téléchargé > Installer maintenant et tada !
 
 = Installation manuelle =
-Extraire le fichier zip et déposez-le dans votre dossier wp-content/plugins/ de votre installation WordPress et activez-le depuis votre page extension.
+Extraire le fichier zip et déposez-le dans votre dossier wp-content/plugins/ de votre installation WordPress et activez-le depuis votre page Extension.
 
 
 == Changelog ==
 
 = 1.0.0 (janvier 2016) =
-* Bump version
-* Identique extension source.
+* Number version identique extension source
 
 = 1.0.0 (janvier 2016) =
 * I Speak WordPress - Je parle français
