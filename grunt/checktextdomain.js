@@ -31,7 +31,6 @@ module.exports = {
 			'!node_modules/**', // Exclude node_modules/
 			'!grunt/**', // Exclude grunt files/
 			'!build/**', // Exclude build folder/
-
 		]
 	}
 };
