@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name:      EDD Test1
- * Plugin URI:      http://fxbenard.com/traductions/test1
+ * Plugin URI:      https://fxbenard.com/traductions/test1
  * Description:     EDD Test1
- * Version: 1.2.2
- * Author:          FX Bénard
+ * Version:      1.2.2
+ * Author:      FX Bénard
  * Author URI:      https://fxbenard.com
- * Text Domain:     test1
+ * Text Domain:      test1
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
  * General Public License version 2, as published by the Free Software Foundation. You may NOT assume
@@ -17,7 +17,7 @@
  *
  * @package         Test1
  * @author          FX Bénard <fx@fxbenard.com>
- * @copyright       Copyright (c) 2015 FX Bénard
+ * @copyright       Copyright (c) 2016 FX Bénard
  * @license         http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  */
