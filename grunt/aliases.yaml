@@ -1,0 +1,31 @@
+# Grunt aliases
+---
+# Init task(s)
+'init':
+- 'replace'
+- 'rename'
+- 'clean'
+- 'checktextdomain'
+- 'makepot'
+- 'notify:init'
+# Bump version task(s)
+'bumpit':
+- 'replace:readme_text'
+- 'replace:main_php'
+- 'wp_readme_to_markdown'
+- 'notify:bump'
+# Checktextdomain and makepot task(s)
+'build:i18n':
+- 'checktextdomain'
+- 'makepot'
+- 'newer:potomo'
+- 'notify:i18n'
+# Build everything
+build:
+- 'clean:build'
+- 'copy'
+- 'compress'
+- 'notify:build'
+# Default task
+default:
+- 'makepot'
