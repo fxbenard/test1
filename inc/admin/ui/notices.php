@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  * @since 1.2
  */
 add_action( 'admin_notices', 'test_1_admin_notices' );
-function test_2_admin_notices() {
+function test_1_admin_notices() {
 
   $notice = get_transient('_test_1_license_error');
 
