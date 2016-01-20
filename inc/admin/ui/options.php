@@ -14,7 +14,7 @@ function test_1_key_callback() {
 	?>
 
   <label>
-		<input type="text" id="test_1_license_key" class="regular-text" name="test_1_license_key" value="<?php echo esc_attr__( $license ); ?>"/>
+		<input type="text" id="test_1_license_key" class="regular-text" name="test_1_license_key" value="<?php echo esc_attr( $license ); ?>"/>
 		<span style="vertical-align: middle;" class="dashicons dashicons-admin-network"></span> <?php echo __( 'Enter your license key', 'test1' ); ?>
 	</label>
 
