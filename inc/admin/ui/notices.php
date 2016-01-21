@@ -11,7 +11,7 @@ function test_1_admin_notices() {
 
   $notice = get_transient('_test_1_license_error');
   $key = get_option('test_1_license_key');
-  
+
   if ( $notice !== false ) {
 
     switch ( $notice ) {
@@ -19,8 +19,7 @@ function test_1_admin_notices() {
       case 'expired' :
         $message_class = 'error';
         $message = sprintf(
-          __( 'Your license key expired on %s. Please <a href="%s" target="_blank" title="Renew your license key">renew your license key</a>.', 'test1' ),
-          date_i18n( get_option( 'date_format' ), strtotime( $license->expires, current_time( 'timestamp' ) ) ),
+          __( 'Your license key has expired. Please <a href="%s" target="_blank" title="Renew your license key">renew your license key</a>.', 'test1' ),
           TEST_1_STORE_URL.'/?edd_license_key=' . $key . '&utm_campaign=admin&utm_source=licenses&utm_medium=expired'
         );
       break;
@@ -36,16 +35,12 @@ function test_1_admin_notices() {
       case 'invalid' :
       case 'site_inactive' :
         $message_class = 'error';
-        $message = sprintf(
-          __( 'Your %s is not active for this URL. Please <a href="%s" target="_blank" title="Visit account page">visit your account page</a> to manage your license key URLs.', 'test1' ),
-          TEST_1_ITEM_NICE_NAME,
-          TEST_1_STORE_URL.'/your-account?utm_campaign=admin&utm_source=licenses&utm_medium=invalid'
-        );
+        $message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
       break;
 
       case 'item_name_mismatch' :
         $message_class = 'error';
-        $message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
+        $message = __( 'This license does not belong to the product you have entered it for.', 'test1' );
       break;
 
       case 'no_activations_left':
@@ -83,8 +78,7 @@ function test_1_ajax_notices() {
 
       case 'expired' :
         $message = sprintf(
-          __( 'Your license key expired on %s. Please <a href="%s" target="_blank" title="Renew your license key">renew your license key</a>.', 'test1' ),
-          date_i18n( get_option( 'date_format' ), strtotime( $license->expires, current_time( 'timestamp' ) ) ),
+          __( 'Your license key expired. Please <a href="%s" target="_blank" title="Renew your license key">renew your license key</a>.', 'test1' ),
           TEST_1_STORE_URL.'/?edd_license_key=' . $key . '&utm_campaign=admin&utm_source=licenses&utm_medium=expired'
         );
       break;
@@ -98,15 +92,11 @@ function test_1_ajax_notices() {
 
       case 'invalid' :
       case 'site_inactive' :
-        $message = sprintf(
-          __( 'Your %s is not active for this URL. Please <a href="%s" target="_blank" title="Visit account page">visit your account page</a> to manage your license key URLs.', 'test1' ),
-          TEST_1_ITEM_NICE_NAME,
-          TEST_1_STORE_URL.'/your-account?utm_campaign=admin&utm_source=licenses&utm_medium=invalid'
-        );
+        $message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
       break;
 
       case 'item_name_mismatch' :
-        $message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
+        $message = __( 'This license does not belong to the product you have entered it for.', 'test1' );
       break;
 
       case 'no_activations_left':
