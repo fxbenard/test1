@@ -18,7 +18,7 @@ function test_1_key_callback() {
 		<span style="vertical-align: middle;" class="dashicons dashicons-admin-network"></span> <?php echo __( 'Enter your license key', 'test1' ); ?>
 	</label>
 
-		<div id="test-1-reponse" style="width:600px; padding-top:1em;">
+		<div id="test-1-reponse" style="width:700px; padding-top:1em;">
 
 			<?php
 
