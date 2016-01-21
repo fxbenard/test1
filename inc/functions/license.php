@@ -84,7 +84,7 @@ function test_1_activate_license() {
 		} else {
 
 			set_transient( '_test_1_license_error', $license_data->error );
-			echo '<p style="color:red;"><span class="dashicons dashicons-info"></span> '. test_1_ajax_notices() .'</p>';
+			echo '<p class="error"><span class="dashicons dashicons-info"></span> '. test_1_ajax_notices() .'</p>';
 
     }
 
