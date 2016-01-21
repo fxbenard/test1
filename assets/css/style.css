@@ -1,0 +1,28 @@
+/**
+ * @author @G3ronim0
+ * @lastmodified 2016-01-21
+ * @version 1.0.0
+ */
+ #test-1-reponse {
+   width:700px;
+   padding-top:1em;
+ }
+
+ .fxb-license-information {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+ .fxb-vam {
+    vertical-align: middle;
+ }
+
+ .fxb-success {
+   color: #66bb6a;
+ }
+
+.fxb-error {
+  color: #ef5350;
+}
