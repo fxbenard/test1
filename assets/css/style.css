@@ -8,11 +8,22 @@
    padding-top:1em;
  }
 
- .fxb-license-information {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
-   align-items: center;
+ .fxb-license-information{
+   display:-webkit-box;
+     display:-webkit-flex;
+       display:-ms-flexbox;
+         display:flex;
+   -webkit-flex-wrap:wrap;
+     -ms-flex-wrap:wrap;
+       flex-wrap:wrap;
+   -webkit-box-pack:justify;
+     -webkit-justify-content:space-between;
+       -ms-flex-pack:justify;
+         justify-content:space-between;
+   -webkit-box-align:center;
+     -webkit-align-items:center;
+       -ms-flex-align:center;
+         align-items:center;
  }
 
  .fxb-vam {
