@@ -7,33 +7,46 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  * @since 1.2
  */
 add_action( 'admin_notices', 'test_1_admin_notices' );
-function test_2_admin_notices() {
+function test_1_admin_notices() {
 
   $notice = get_transient('_test_1_license_error');
+  $key = get_option('test_1_license_key');
 
   if ( $notice !== false ) {
 
     switch ( $notice ) {
 
+      case 'expired' :
+        $message_class = 'error';
+        $message = sprintf(
+          __( 'Your license key has expired. Please <a href="%s" target="_blank" title="Renew your license key">renew your license key</a>.', 'test1' ),
+          TEST_1_STORE_URL.'/?edd_license_key=' . $key . '&utm_campaign=admin&utm_source=licenses&utm_medium=expired'
+        );
+      break;
+
+      case 'missing' :
+        $message_class = 'error';
+        $message = sprintf(
+          __( 'Invalid license. Please <a href="%s" target="_blank" title="Visit account page">visit your account page</a> and verify it.', 'test1' ),
+          TEST_1_STORE_URL.'your-account?utm_campaign=admin&utm_source=licenses&utm_medium=missing'
+        );
+      break;
+
+      case 'invalid' :
+      case 'site_inactive' :
+        $message_class = 'error';
+        $message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
+      break;
+
       case 'item_name_mismatch' :
-  			$message_class = 'error';
-  			$message = __( 'This license does not belong to the product you have entered it for.', 'test1' );
-  			break;
+        $message_class = 'error';
+        $message = __( 'This license does not belong to the product you have entered it for.', 'test1' );
+      break;
 
-  		case 'no_activations_left' :
-  			$message_class = 'error';
-  			$message = __( 'This license does not have any activations left', 'test1' );
-  			break;
-
-  		case 'expired' :
-  			$message_class = 'error';
-  			$message = __( 'This license key is expired. Please renew it.', 'test1' );
-  			break;
-
-      default :
-				$message_class = 'error';
-				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
-				break;
+      case 'no_activations_left':
+        $message_class = 'error';
+        $message = sprintf( __( 'Your license key has reached its activation limit. <a href="%s">View possible upgrades</a> now.', 'test1' ), TEST_1_STORE_URL.'/your-account' );
+      break;
 
   	}
 
@@ -57,26 +70,38 @@ function test_2_admin_notices() {
 function test_1_ajax_notices() {
 
   $notice = get_transient('_test_1_license_error');
+  $key = get_option('test_1_license_key');
 
   if ( $notice !== false ) {
 
     switch ( $notice ) {
 
+      case 'expired' :
+        $message = sprintf(
+          __( 'Your license key expired. Please <a href="%s" target="_blank" title="Renew your license key">renew your license key</a>.', 'test1' ),
+          TEST_1_STORE_URL.'/?edd_license_key=' . $key . '&utm_campaign=admin&utm_source=licenses&utm_medium=expired'
+        );
+      break;
+
+      case 'missing' :
+        $message = sprintf(
+          __( 'Invalid license. Please <a href="%s" target="_blank" title="Visit account page">visit your account page</a> and verify it.', 'test1' ),
+          TEST_1_STORE_URL.'/your-account?utm_campaign=admin&utm_source=licenses&utm_medium=missing'
+        );
+      break;
+
+      case 'invalid' :
+      case 'site_inactive' :
+        $message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
+      break;
+
       case 'item_name_mismatch' :
-  			$message = __( 'This license does not belong to the product you have entered it for.', 'test1' );
-  			break;
+        $message = __( 'This license does not belong to the product you have entered it for.', 'test1' );
+      break;
 
-  		case 'no_activations_left' :
-  			$message = __( 'This license does not have any activations left', 'test1' );
-  			break;
-
-  		case 'expired' :
-  			$message = __( 'This license key is expired. Please renew it.', 'test1' );
-  			break;
-
-        default :
-  				$message = sprintf( __( 'There was a problem activating your license key, please try again or contact support. Error code: %s', 'test1' ), $notice );
-  				break;
+      case 'no_activations_left':
+        $message = sprintf( __( 'Your license key has reached its activation limit. <a href="%s">View possible upgrades</a> now.', 'test1' ), TEST_1_STORE_URL.'/your-account' );
+      break;
 
   	}
 

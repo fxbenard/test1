@@ -37,7 +37,7 @@ function test_1_edd_software_call( $action, $key ) {
 
     // make sure the response came back okay
     if ( is_wp_error( $remote_call ) ) {
-			$error_message = sprintf( __('<p style="color:red;"><span class="dashicons dashicons-info"></span>There is a problem with remote site, please try again. %s</p>', 'test1' ), $remote_call->get_error_message() );
+			$error_message = sprintf( __('<p class="fxb-error"><span class="dashicons dashicons-info"></span>There is a problem with remote site, please try again. %s</p>', 'test1' ), $remote_call->get_error_message() );
 			return $error_message;
     }else {
     	// decode the license data

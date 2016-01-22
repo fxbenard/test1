@@ -22,5 +22,8 @@ function test_1_load_admin_script() {
       'test_1_nonce' => wp_create_nonce( 'test-1-nonce' ),
   ) );
 
+  wp_register_style( 'test-1-css', TEST_1_ASSETS_CSS_URL . 'style.css', false, '1.0.0' );
+  wp_enqueue_style( 'test-1-css' );
+
 }
 add_action( 'admin_enqueue_scripts', 'test_1_load_admin_script' );
