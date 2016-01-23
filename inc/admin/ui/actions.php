@@ -21,6 +21,8 @@ function test_1_action_remove_license( $expires ) {
 
 	$now        = current_time( 'timestamp' );
 	$expiration = strtotime( $expires, current_time( 'timestamp' ) );
+	$key = get_option('test_1_license_key');
+	$license = get_transient('_test_1_license_data');
 
 	if( 'lifetime' === $expires ) {
 		$expiration_message = __( 'License key never expires.', 'test1' );
@@ -28,7 +30,7 @@ function test_1_action_remove_license( $expires ) {
 		$expiration_message = sprintf(
 			__( 'Your license key expires soon! It expires on %s. <a href="%s" target="_blank" title="Renew license">Renew your license key</a>.', 'test1' ),
 			date_i18n( get_option( 'date_format' ), strtotime( $expires, current_time( 'timestamp' ) ) ),
-			'#'
+			TEST_1_STORE_URL.'/commander/?edd_license_key=' . $key
 		);
 	} else {
 		$expiration_message = sprintf(
