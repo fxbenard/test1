@@ -20,7 +20,7 @@ function test_1_admin_notices() {
         $message_class = 'error';
         $message = sprintf(
           __( 'Your license key has expired. Please <a href="%s" target="_blank" title="Renew your license key">renew your license key</a>.', 'test1' ),
-          TEST_1_STORE_URL.'/?edd_license_key=' . $key . '&utm_campaign=admin&utm_source=licenses&utm_medium=expired'
+          TEST_1_STORE_URL.'/commander/?edd_license_key=' . $key
         );
       break;
 
@@ -28,7 +28,7 @@ function test_1_admin_notices() {
         $message_class = 'error';
         $message = sprintf(
           __( 'Invalid license. Please <a href="%s" target="_blank" title="Visit account page">visit your account page</a> and verify it.', 'test1' ),
-          TEST_1_STORE_URL.'your-account?utm_campaign=admin&utm_source=licenses&utm_medium=missing'
+          TEST_1_STORE_URL.'/votre-compte'
         );
       break;
 
@@ -45,7 +45,7 @@ function test_1_admin_notices() {
 
       case 'no_activations_left':
         $message_class = 'error';
-        $message = sprintf( __( 'Your license key has reached its activation limit. <a href="%s">View possible upgrades</a> now.', 'test1' ), TEST_1_STORE_URL.'/your-account' );
+        $message = sprintf( __( 'Your license key has reached its activation limit. <a href="%s">View possible upgrades</a> now.', 'test1' ), TEST_1_STORE_URL.'/votre-compte' );
       break;
 
   	}
@@ -79,14 +79,14 @@ function test_1_ajax_notices() {
       case 'expired' :
         $message = sprintf(
           __( 'Your license key expired. Please <a href="%s" target="_blank" title="Renew your license key">renew your license key</a>.', 'test1' ),
-          TEST_1_STORE_URL.'/?edd_license_key=' . $key . '&utm_campaign=admin&utm_source=licenses&utm_medium=expired'
+          TEST_1_STORE_URL.'/commander/?edd_license_key=' . $key . '&utm_campaign=admin&utm_source=licenses&utm_medium=expired'
         );
       break;
 
       case 'missing' :
         $message = sprintf(
           __( 'Invalid license. Please <a href="%s" target="_blank" title="Visit account page">visit your account page</a> and verify it.', 'test1' ),
-          TEST_1_STORE_URL.'/your-account?utm_campaign=admin&utm_source=licenses&utm_medium=missing'
+          TEST_1_STORE_URL.'/votre-compte/?utm_campaign=admin&utm_source=licenses&utm_medium=missing'
         );
       break;
 
@@ -100,7 +100,7 @@ function test_1_ajax_notices() {
       break;
 
       case 'no_activations_left':
-        $message = sprintf( __( 'Your license key has reached its activation limit. <a href="%s">View possible upgrades</a> now.', 'test1' ), TEST_1_STORE_URL.'/your-account' );
+        $message = sprintf( __( 'Your license key has reached its activation limit. <a href="%s">View possible upgrades</a> now.', 'test1' ), TEST_1_STORE_URL.'/votre-compte' );
       break;
 
   	}

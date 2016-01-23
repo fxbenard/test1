@@ -4,27 +4,68 @@
  * @version 1.0.0
  */
  #test-1-reponse {
-   width:700px;
    padding-top:1em;
  }
 
- .fxb-license-information{
-   display:-webkit-box;
-     display:-webkit-flex;
-       display:-ms-flexbox;
-         display:flex;
-   -webkit-flex-wrap:wrap;
-     -ms-flex-wrap:wrap;
-       flex-wrap:wrap;
-   -webkit-box-pack:justify;
-     -webkit-justify-content:space-between;
-       -ms-flex-pack:justify;
-         justify-content:space-between;
-   -webkit-box-align:center;
-     -webkit-align-items:center;
-       -ms-flex-align:center;
-         align-items:center;
+ .fxb-license-information,
+ .fxb-container {
+   display: -webkit-box;
+     display: -webkit-flex;
+       display: -ms-flexbox;
+         display: flex;
+   -webkit-flex-wrap: wrap;
+     -ms-flex-wrap: wrap;
+       flex-wrap: wrap;
+   -webkit-box-pack: justify;
+     -webkit-justify-content: space-between;
+       -ms-flex-pack: justify;
+         justify-content: space-between;
+   -webkit-box-align: center;
+     -webkit-align-items: center;
+       -ms-flex-align: center;
+         align-items: center;
  }
+
+.fxb-container {
+    -webkit-box-align:start;
+      -webkit-align-items:flex-start;
+        -ms-flex-align:start;
+          align-items:flex-start;
+}
+
+ .fxb-content {
+   -webkit-box-flex:1;
+    -webkit-flex:1;
+      -ms-flex:1;
+        flex:1;
+   max-width: 1280px;
+   padding-right: 2em;
+ }
+
+.fxb-sidebar {
+  max-width: 320px;
+  text-align: center;
+}
+
+.fxb-sidebar-content {
+  padding: 1em .8em;
+  background: #FFF;
+}
+
+.fxb-sidebar-content p {
+  font-size: 18px !important;
+}
+
+.fxb-sidebar footer {
+  padding: 1em;
+  background: #1E73BE;
+}
+
+.fxb-sidebar footer a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+}
 
  .fxb-vam {
     vertical-align: middle;

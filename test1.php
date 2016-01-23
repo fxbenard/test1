@@ -41,6 +41,7 @@ define( 'TEST_1_FUNCTIONS_PATH', realpath( TEST_1_INC_PATH . 'functions' ) . '/'
 define( 'TEST_1_ASSETS_URL',  TEST_1_URL . 'assets/' );
 define( 'TEST_1_ASSETS_JS_URL', TEST_1_ASSETS_URL . 'js/' );
 define( 'TEST_1_ASSETS_CSS_URL', TEST_1_ASSETS_URL . 'css/' );
+define( 'TEST_1_ASSETS_IMG_URL', TEST_1_ASSETS_URL . 'img/' );
 
 /**
  * Tell WP what to do when plugin is loaded
