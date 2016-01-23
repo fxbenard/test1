@@ -58,14 +58,28 @@ if ( ! function_exists( 'fx_trads_license_page' ) ) {
 		?>
 
 		<div class="wrap">
+
 			<h1><?php echo $title; ?></h1>
 
-			<form action="options.php" method="POST">
+			<div class="fxb-container">
 
-					<?php settings_fields( 'fx_trads_license' ); ?>
-					<?php do_settings_sections( 'fx-trads-license' ); ?>
-					<?php submit_button(); ?>
-			</form>
+				<section class="fxb-content">
+					<form action="options.php" method="POST">
+							<?php settings_fields( 'fx_trads_license' ); ?>
+							<?php do_settings_sections( 'fx-trads-license' ); ?>
+							<?php submit_button(); ?>
+					</form>
+				</section>
+
+				<aside class="fxb-sidebar">
+					<div class="fxb-sidebar-content">
+						<img src="<?php echo TEST_1_ASSETS_IMG_URL;?>/fxbenard-logo.png" title="" alt="">
+						<p><?php _e('French translator for WordPress plugins & themes', 'test1'); ?></p>
+					</div>
+					<footer><a href="https://fxbenard.com/mes-traductions/"><?php _e('See my other trads', 'test1');?></a></footer>
+				</aside>
+
+		</div>
 
 		</div>
 
