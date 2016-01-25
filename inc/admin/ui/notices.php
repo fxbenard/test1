@@ -86,7 +86,7 @@ function test_1_ajax_notices() {
       case 'missing' :
         $message = sprintf(
           __( 'Invalid license. Please <a href="%s" target="_blank" title="Visit account page">visit your account page</a> and verify it.', 'test1' ),
-          TEST_1_STORE_URL.'/votre-compte/?utm_campaign=admin&utm_source=licenses&utm_medium=missing'
+          TEST_1_STORE_URL.'/votre-compte'
         );
       break;
 
