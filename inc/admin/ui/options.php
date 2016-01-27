@@ -16,31 +16,29 @@ function test_1_key_callback() {
   <label>
 		<input type="text" id="test_1_license_key" class="regular-text" name="test_1_license_key" value="<?php echo esc_attr( $license ); ?>"/>
 		<span class="fxb-vam dashicons dashicons-admin-network"></span> <?php echo __( 'Enter your license key', 'test1' ); ?>
-	</label>
+    </label>
 
-		<div id="test-1-reponse">
+        <div id="test-1-reponse">
 
 			<?php
 
-				if ( false !== $license ) {
+			if ( false !== $license ) {
 
-					if ( $status !== false && $status == 'valid' ) {
+				if ( $status !== false && $status == 'valid' ) {
 
-						$license_data = get_transient( '_test_1_license_data' );
-						echo test_1_action_remove_license( $license_data->expires );
+					$license_data = get_transient( '_test_1_license_data' );
+					echo test_1_action_remove_license( $license_data->expires );
 
+				} elseif ( $status === false or $status != 'invalid' ) {
 
-					} elseif ( $status === false OR $status != 'invalid' ) {
-
-						echo test_1_action_add_license();
-
-					}
+					echo test_1_action_add_license();
 
 				}
+			}
 
 			?>
 
-		</div>
+        </div>
 
 <?php }
 
@@ -57,31 +55,31 @@ if ( ! function_exists( 'fx_trads_license_page' ) ) {
 
 		?>
 
-		<div class="wrap">
+        <div class="wrap">
 
 			<h1><?php echo $title; ?></h1>
 
-			<div class="fxb-container">
+            <div class="fxb-container">
 
-				<section class="fxb-content">
-					<form action="options.php" method="POST">
+                <section class="fxb-content">
+                    <form action="options.php" method="POST">
 							<?php settings_fields( 'fx_trads_license' ); ?>
 							<?php do_settings_sections( 'fx-trads-license' ); ?>
 							<?php submit_button(); ?>
-					</form>
-				</section>
+                    </form>
+                </section>
 
-				<aside class="fxb-sidebar">
-					<div class="fxb-sidebar-content">
+                <aside class="fxb-sidebar">
+                    <div class="fxb-sidebar-content">
 						<img src="<?php echo TEST_1_ASSETS_IMG_URL;?>/fxbenard-logo.png" title="" alt="">
-						<p><?php _e('French translator for WordPress plugins & themes', 'test1'); ?></p>
-					</div>
-					<footer><a href="https://fxbenard.com/mes-traductions/"><?php _e('See my other trads', 'test1');?></a></footer>
-				</aside>
+						<p><?php _e( 'French translator for WordPress plugins & themes', 'test1' ); ?></p>
+                    </div>
+					<footer><a href="https://fxbenard.com/mes-traductions/"><?php _e( 'See my other trads', 'test1' );?></a></footer>
+                </aside>
 
-		</div>
+        </div>
 
-		</div>
+        </div>
 
 		<?php
 	}

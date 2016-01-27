@@ -8,22 +8,22 @@ defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
  */
 function test_1_load_admin_script() {
 
-  $translation_array = array(
-  	'license_deactivate' => TEST_1_ITEM_NICE_NAME.' : '.__( 'License deactivate', 'test1' ),
-    'ajax_fail' => __( 'Please try again soon.', 'test1' ),
-  );
+	$translation_array = array(
+		'license_deactivate' => TEST_1_ITEM_NICE_NAME.' : '.__( 'License deactivate', 'test1' ),
+	'ajax_fail' => __( 'Please try again soon.', 'test1' ),
+	);
 
-  wp_enqueue_script( 'test-1-script', TEST_1_ASSETS_JS_URL . 'script.js', array( 'jquery' ), '1.0.0', false );
+	wp_enqueue_script( 'test-1-script', TEST_1_ASSETS_JS_URL . 'script.js', array( 'jquery' ), '1.0.0', false );
 
-  wp_localize_script( 'test-1-script', 'test_1_ajax', array (
-      'ajaxurl' => admin_url( 'admin-ajax.php' ),
-      'license_deactivate'=> $translation_array,
-      'ajax_fail' => $translation_array,
-      'test_1_nonce' => wp_create_nonce( 'test-1-nonce' ),
-  ) );
+	wp_localize_script( 'test-1-script', 'test_1_ajax', array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		'license_deactivate' => $translation_array,
+		'ajax_fail' => $translation_array,
+		'test_1_nonce' => wp_create_nonce( 'test-1-nonce' ),
+	) );
 
-  wp_register_style( 'test-1-css', TEST_1_ASSETS_CSS_URL . 'style.css', false, '1.0.0' );
-  wp_enqueue_style( 'test-1-css' );
+	wp_register_style( 'test-1-css', TEST_1_ASSETS_CSS_URL . 'style.css', false, '1.0.0' );
+	wp_enqueue_style( 'test-1-css' );
 
 }
 add_action( 'admin_enqueue_scripts', 'test_1_load_admin_script' );

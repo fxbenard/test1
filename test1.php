@@ -19,16 +19,15 @@
  * @author          FX Bénard <fx@fxbenard.com>
  * @copyright       Copyright (c) 2016 FX Bénard
  * @license         http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- *
  */
 
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
-// Test1 defines
+// Test1 defines.
 define( 'TEST_1_VERSION', '1.2.2' );
-define( 'TEST_1_STORE_URL', 'https://fxbenard.com' ); // Store URL for API call
-define( 'TEST_1_ITEM_NAME', 'Test1' ); // Item Name for API call
-define( 'TEST_1_ITEM_NICE_NAME', 'Test 1' ); // Item Nice Name
+define( 'TEST_1_STORE_URL', 'https://fxbenard.com' ); // Store URL for API call.
+define( 'TEST_1_ITEM_NAME', 'Test1' ); // Item Name for API call.
+define( 'TEST_1_ITEM_NICE_NAME', 'Test 1' ); // Item Nice Name.
 define( 'TEST_1_FILE', __FILE__ );
 define( 'TEST_1_URL', plugin_dir_url( TEST_1_FILE ) );
 define( 'TEST_1_PATH', realpath( plugin_dir_path( TEST_1_FILE ) ) . '/' );
@@ -52,22 +51,22 @@ add_action( 'plugins_loaded', 'test_1_init' );
 
 function test_1_init() {
 
-	// Load translations
+	// Load translations.
 	load_plugin_textdomain( 'test1', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 	if ( is_admin() ) {
 
 		if ( ! class_exists( 'TEST_1_Plugin_Updater' ) ) {
-				require ( TEST_1_CLASSES_PATH . 'TEST_1_Plugin_Updater.php' );
+				require( TEST_1_CLASSES_PATH . 'TEST_1_Plugin_Updater.php' );
 		}
 
-		require ( TEST_1_ADMIN_PATH . 'options.php' );
-		require ( TEST_1_ADMIN_PATH . 'enqueue.php' );
-		require ( TEST_1_ADMIN_UI_PATH . 'options.php' );
-		require ( TEST_1_ADMIN_UI_PATH . 'actions.php' );
-		require ( TEST_1_ADMIN_UI_PATH . 'notices.php' );
-		require ( TEST_1_API_PATH . 'edd-software-licensing.php' );
-		require ( TEST_1_FUNCTIONS_PATH . 'license.php' );
+		require( TEST_1_ADMIN_PATH . 'options.php' );
+		require( TEST_1_ADMIN_PATH . 'enqueue.php' );
+		require( TEST_1_ADMIN_UI_PATH . 'options.php' );
+		require( TEST_1_ADMIN_UI_PATH . 'actions.php' );
+		require( TEST_1_ADMIN_UI_PATH . 'notices.php' );
+		require( TEST_1_API_PATH . 'edd-software-licensing.php' );
+		require( TEST_1_FUNCTIONS_PATH . 'license.php' );
 
 	}
 
@@ -82,10 +81,10 @@ function test_1_plugin_updater() {
 
 		$license_key = trim( get_option( 'test_1_license_key' ) );
 
-		// setup the updater
+		// Setup the updater.
 		$edd_updater = new TEST_1_Plugin_Updater( TEST_1_STORE_URL, __FILE__, array(
 			'version' 	=> TEST_1_VERSION,
-			'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
+			'license' 	=> $license_key, 		// License key (used get_option above to retrieve from DB).
 			'item_name' => TEST_1_ITEM_NAME,
 			'author' 	=> 'fxbenard',
 			)
@@ -98,5 +97,5 @@ add_action( 'admin_init', 'test_1_plugin_updater', 0 );
 $license = get_option( 'test_1_license_key' );
 $status = get_option( 'test_1_license_status' );
 if ( $license !== false && $status == 'valid' ) {
-	// ADD YOUR STUFF HERE
+	// ADD YOUR STUFF HERE.
 }

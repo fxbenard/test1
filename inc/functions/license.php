@@ -27,16 +27,16 @@ function test_1_sanitize_license( $new ) {
  */
 function test_1_check_license() {
 
-  $license = trim( get_option( 'test_1_license_key' ) );
-  $status = get_option( 'test_1_license_status' );
+	$license = trim( get_option( 'test_1_license_key' ) );
+	$status = get_option( 'test_1_license_status' );
 
-  if ( false !== $license && !empty( $license ) ) {
+	if ( false !== $license && ! empty( $license ) ) {
 
-    $license_data = get_transient( '_test_1_license_data' );
+		$license_data = get_transient( '_test_1_license_data' );
 
-    if ( false ===  $license_data ) {
+		if ( false === $license_data ) {
 
-      $license_data = test_1_edd_software_call( 'check_license', $license );
+			$license_data = test_1_edd_software_call( 'check_license', $license );
 
 			if ( $license_data->license == 'invalid' ) {
 
@@ -48,10 +48,8 @@ function test_1_check_license() {
 				set_transient( '_test_1_license_data', $license_data, DAY_IN_SECONDS );
 
 			}
-
-    }
-
-  }
+		}
+	}
 
 }
 add_action( 'admin_init', 'test_1_check_license' );
@@ -63,30 +61,30 @@ add_action( 'admin_init', 'test_1_check_license' );
  */
 function test_1_activate_license() {
 
-		$license = trim ( get_option( 'test_1_license_key' ) );
+		$license = trim( get_option( 'test_1_license_key' ) );
 		$nonce = $_POST['test_1_nonce'];
 
 		// run a quick security check
-		if ( ! wp_verify_nonce( $nonce, 'test-1-nonce' ) ) {
-			wp_die( __( 'Cheatin&#8217; uh?', 'test1' ) );
-		}
+	if ( ! wp_verify_nonce( $nonce, 'test-1-nonce' ) ) {
+		wp_die( __( 'Cheatin&#8217; uh?', 'test1' ) );
+	}
 
 		$license_data = test_1_edd_software_call( 'activate_license', $license );
 
 		update_option( 'test_1_license_status', $license_data->license );
 
-		if ( $license_data->license == 'valid' ) {
+	if ( $license_data->license == 'valid' ) {
 
 	    set_transient( '_test_1_license_data', $license_data, DAY_IN_SECONDS );
-			delete_transient( '_test_1_license_error' );
-			echo test_1_action_remove_license($license_data->expires);
+		delete_transient( '_test_1_license_error' );
+		echo test_1_action_remove_license( $license_data->expires );
 
-		} else {
+	} else {
 
-			set_transient( '_test_1_license_error', $license_data->error );
-			echo '<p class="fxb-error"><span class="dashicons dashicons-info"></span> '. test_1_ajax_notices() .'</p>';
+		set_transient( '_test_1_license_error', $license_data->error );
+		echo '<p class="fxb-error"><span class="dashicons dashicons-info"></span> '. test_1_ajax_notices() .'</p>';
 
-    }
+	}
 
 		die();
 
@@ -100,24 +98,24 @@ add_action( 'wp_ajax_test_1_activate_license', 'test_1_activate_license' );
  */
 function test_1_deactivate_license() {
 
-	  $license = trim ( get_option( 'test_1_license_key' ) );
+	  $license = trim( get_option( 'test_1_license_key' ) );
 		$nonce = $_POST['test_1_nonce'];
 
 		// run a quick security check
-		if ( ! wp_verify_nonce( $nonce, 'test-1-nonce' ) ) {
-			wp_die( __( 'Cheatin&#8217; uh?', 'test1' ) );
-		}
+	if ( ! wp_verify_nonce( $nonce, 'test-1-nonce' ) ) {
+		wp_die( __( 'Cheatin&#8217; uh?', 'test1' ) );
+	}
 
 		$license_data = test_1_edd_software_call( 'deactivate_license', $license );
 
-		if ( $license_data->license == 'deactivated' ) {
+	if ( $license_data->license == 'deactivated' ) {
 
-			delete_option( 'test_1_license_key' );
-			delete_option( 'test_1_license_status' );
-			delete_transient ( '_test_1_license_data' );
-			delete_transient ( '_test_1_license_error' );
+		delete_option( 'test_1_license_key' );
+		delete_option( 'test_1_license_status' );
+		delete_transient( '_test_1_license_data' );
+		delete_transient( '_test_1_license_error' );
 
-		}
+	}
 
 		die();
 }

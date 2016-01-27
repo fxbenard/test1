@@ -6,14 +6,15 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  *
  * @since 1.2
  */
-function test_1_action_add_license() { ?>
+function test_1_action_add_license() {
+	?>
 
 	<div><button type="button" id="test_1_license_activate" class="button-secondary"> <?php _e( 'Activate License', 'test1' ); ?></button><span id="spinner-test-1" class="spinner"></span></div>
 
 <?php }
 
 /**
- * Ouput Dectivate license button and license informations
+ * Ouput Deactivate license button and license informations
  *
  * @since 1.2
  */
@@ -21,12 +22,12 @@ function test_1_action_remove_license( $expires ) {
 
 	$now        = current_time( 'timestamp' );
 	$expiration = strtotime( $expires, current_time( 'timestamp' ) );
-	$key = get_option('test_1_license_key');
-	$license = get_transient('_test_1_license_data');
+	$key = get_option( 'test_1_license_key' );
+	$license = get_transient( '_test_1_license_data' );
 
-	if( 'lifetime' === $expires ) {
+	if ( 'lifetime' === $expires ) {
 		$expiration_message = __( 'License key never expires.', 'test1' );
-	} elseif( $expiration > $now && $expiration - $now < ( DAY_IN_SECONDS * 30 ) ) {
+	} elseif ( $expiration > $now && $expiration - $now < ( DAY_IN_SECONDS * 30 ) ) {
 		$expiration_message = sprintf(
 			__( 'Your license key expires soon! It expires on %s. <a href="%s" target="_blank" title="Renew license">Renew your license key</a>.', 'test1' ),
 			date_i18n( 'j F Y', strtotime( $expires, current_time( 'timestamp' ) ) ),
@@ -40,10 +41,10 @@ function test_1_action_remove_license( $expires ) {
 	}
 
 	?>
-	<div class="fxb-license-information">
+    <div class="fxb-license-information">
 		<div><span class="fxb-success dashicons dashicons-yes"></span> <?php _e( 'License active', 'test1' ); ?></div>
 		<div><span class="dashicons dashicons-backup"></span> <?php echo $expiration_message; ?></strong></div>
 		<div><button type="button" id="test_1_license_deactivate" class="button-secondary"><span class="fxb-vam dashicons dashicons-no"></span> <?php _e( 'Deactivate License', 'test1' ); ?></button><span id="spinner-test-1" class="spinner"></span></div>
-	</div>
+    </div>
 
 <?php }
