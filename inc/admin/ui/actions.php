@@ -29,13 +29,13 @@ function test_1_action_remove_license( $expires ) {
 	} elseif( $expiration > $now && $expiration - $now < ( DAY_IN_SECONDS * 30 ) ) {
 		$expiration_message = sprintf(
 			__( 'Your license key expires soon! It expires on %s. <a href="%s" target="_blank" title="Renew license">Renew your license key</a>.', 'test1' ),
-			date_i18n( get_option( 'date_format' ), strtotime( $expires, current_time( 'timestamp' ) ) ),
+			date_i18n( 'j F Y', strtotime( $expires, current_time( 'timestamp' ) ) ),
 			TEST_1_STORE_URL.'/commander/?edd_license_key=' . $key
 		);
 	} else {
 		$expiration_message = sprintf(
 			__( 'Your license key expires on %s.', 'test1' ),
-			date_i18n( get_option( 'date_format' ), strtotime( $expires, current_time( 'timestamp' ) ) )
+			date_i18n( 'j F Y', strtotime( $expires, current_time( 'timestamp' ) ) )
 		);
 	}
 
