@@ -6,6 +6,6 @@ module.exports = {
   },
   classes: {
     src: 'inc/classes/TEST_1_Plugin_Updater.php',
-    dest: 'inc/classes/<%= pkg.constant.TEST_1 %>' + '_Plugin_Update.php',
+    dest: 'inc/classes/<%= pkg.constant.TEST_1 %>' + '_Plugin_Updater.php',
   }
 };
