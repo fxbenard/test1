@@ -2,7 +2,9 @@
 ---
 # Init task(s)
 'init':
-- 'replace'
+- 'replace:readme_txt'
+- 'replace:main_init'
+- 'replace:all'
 - 'rename'
 - 'clean'
 - 'checktextdomain'
@@ -11,7 +13,7 @@
 # Bump version task(s)
 'bumpit':
 - 'replace:readme_txt'
-- 'replace:main_php'
+- 'replace:main_bump'
 - 'wp_readme_to_markdown'
 - 'notify:bump'
 # Checktextdomain and makepot task(s)

@@ -4,18 +4,18 @@ module.exports = {
 		src: [ 'readme.txt' ],
 		overwrite: true,
 		replacements: [{
-			from: /Stable tag: (.*)/,
-			to: "Stable tag: <%= pkg.version %>"
-		},{
 			from: /Tags: (.*)/,
 			to: "Tags: <%= pkg.tags %>"
 		},{
 			from: /Tested up to: (.*)/,
 			to: "Tested up to: <%= pkg.upto %>"
-		}]
+		},{
+			from: /Stable tag: (.*)/,
+			to: "Stable tag: <%= pkg.version %>"
+		},]
 	},
-	main_php: {
-		src: [ '<%= pkg.pot.src %>' ],
+	main_init: {
+		src: [ 'test1.php' ],
 		overwrite: true,
 		replacements: [{
 			from: / Plugin Name:\s*(.*)/,
@@ -41,7 +41,7 @@ module.exports = {
 		}]
 	},
 	all: {
-		src: ['*.php', '**/*.php', '!node_modules/**/*.php', 'assets/js/*.js', '!build/**/*', '*.txt'],
+		src: ['*.php', '**/*.php', 'assets/js/*.js', 'assets/css/*.css', '*.txt', '!build/**/*', '!node_modules/**/*.php'],
 		overwrite: true,
 		replacements: [{
 			from: /Test\s1/,
@@ -73,6 +73,17 @@ module.exports = {
 		},{
 			from: '-test-1',
 			to: '-<%= pkg.constant.test %>'
+		}]
+	},
+	main_bump: {
+		src: [ '<%= pkg.pot.src %>' ],
+		overwrite: true,
+		replacements: [{
+			from: / Version:\s*(.*)/,
+			to: " Version:      <%= pkg.version %>"
+		},{
+			from: /(.*)_VERSION',\s*(.*)/,
+			to: "define( '<%= pkg.constant.TEST_1 %>_VERSION', '<%= pkg.version %>' );"
 		}]
 	}
 };
