@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:      EDD Test1
+ * Plugin Name:      Test1
  * Plugin URI:      https://fxbenard.com/traductions/test1
- * Description:     EDD Test1
+ * Description:     Test1
  * Version:      1.2.2
  * Author:      FX Bénard
  * Author URI:      https://fxbenard.com
