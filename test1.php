@@ -47,8 +47,6 @@ define( 'TEST_1_ASSETS_IMG_URL', TEST_1_ASSETS_URL . 'img/' );
  *
  * @since 1.2
  */
-add_action( 'plugins_loaded', 'test_1_init' );
-
 function test_1_init() {
 
 	// Load translations.
@@ -71,6 +69,7 @@ function test_1_init() {
 	}
 
 }
+add_action( 'plugins_loaded', 'test_1_init' );
 
 /**
  * Setup the updater
