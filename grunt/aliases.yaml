@@ -10,7 +10,7 @@
 - 'notify:init'
 # Bump version task(s)
 'bumpit':
-- 'replace:readme_text'
+- 'replace:readme_txt'
 - 'replace:main_php'
 - 'wp_readme_to_markdown'
 - 'notify:bump'
