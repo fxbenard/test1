@@ -98,3 +98,26 @@ $status = get_option( 'test_1_license_status' );
 if ( $license !== false && $status == 'valid' ) {
 	// ADD YOUR STUFF HERE.
 }
+
+/**
+ * Load Test1 textdomain function
+ * Thanks to @grappler for his help
+ */
+function test_1_load_plugin_textdomain() {
+	$domains = array(
+		'test1',
+	);
+	$domains = apply_filters( 'test_1_text_domains', $domains );
+	foreach ( $domains as $domain ) {
+		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+		if ( $loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . '/plugins/test-1/' . $domain . '-' . $locale . '.mo' ) ) {
+			return $loaded;
+		} elseif ( $loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' ) ) {
+			return $loaded;
+		} else {
+			load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		}
+	}
+}
+add_action( 'init', 'test_1_load_plugin_textdomain', 0 );
+
