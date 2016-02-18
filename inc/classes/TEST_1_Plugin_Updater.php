@@ -1,8 +1,8 @@
 <?php
 
-// uncomment this line for testing
+// Uncomment this line for testing.
 // set_site_transient( 'update_plugins', null );
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /**
@@ -109,7 +109,7 @@ class TEST_1_Plugin_Updater {
 	}
 
 	/**
-	 * show update nofication row -- needed for multisite subsites, because WP won't tell you otherwise!
+	 * Show update nofication row -- needed for multisite subsites, because WP won't tell you otherwise!
 	 *
 	 * @param string $file
 	 * @param array  $plugin
@@ -128,7 +128,7 @@ class TEST_1_Plugin_Updater {
 			return;
 		}
 
-		// Remove our filter on the site transient
+		// Remove our filter on the site transient.
 		remove_filter( 'pre_set_site_transient_update_plugins', array( $this, 'check_update' ), 10 );
 
 		$update_cache = get_site_transient( 'update_plugins' );
@@ -168,12 +168,12 @@ class TEST_1_Plugin_Updater {
 
 		}
 
-		// Restore our filter
+		// Restore our filter.
 		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'check_update' ) );
 
 		if ( ! empty( $update_cache->response[ $this->name ] ) && version_compare( $this->version, $version_info->new_version, '<' ) ) {
 
-			// build a plugin list row, with update notification
+			// Build a plugin list row, with update notification.
 			$wp_list_table = _get_list_table( 'WP_Plugins_List_Table' );
 			echo '<tr class="plugin-update-tr"><td colspan="' . $wp_list_table->get_column_count() . '" class="plugin-update colspanchange"><div class="update-message">';
 
@@ -231,7 +231,7 @@ class TEST_1_Plugin_Updater {
 			'slug'   => $this->slug,
 			'is_ssl' => is_ssl(),
 			'fields' => array(
-				'banners' => false, // These will be supported soon hopefully
+				'banners' => false, // These will be supported soon hopefully.
 				'reviews' => false,
 			),
 		);
@@ -254,7 +254,7 @@ class TEST_1_Plugin_Updater {
 	 * @return object $array
 	 */
 	function http_request_args( $args, $url ) {
-		// If it is an https request and we are performing a package download, disable ssl verification
+		// If it is an https request and we are performing a package download, disable ssl verification.
 		if ( strpos( $url, 'https://' ) !== false && strpos( $url, 'edd_action=package_download' ) ) {
 			$args['sslverify'] = false;
 		}
@@ -283,7 +283,7 @@ class TEST_1_Plugin_Updater {
 		}
 
 		if ( $this->api_url == home_url() ) {
-			return false; // Don't allow a plugin to ping itself
+			return false; // Don't allow a plugin to ping itself.
 		}
 
 		$api_params = array(
