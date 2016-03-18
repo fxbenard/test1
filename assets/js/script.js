@@ -4,7 +4,6 @@ jQuery(document).ready(function($) {
 
 			$.ajax({
 				type: "POST",
-				timeout: 30000,
 				url: test_1_ajax.ajaxurl,
 				data: {
 					'action': 'test_1_activate_license',
@@ -29,7 +28,6 @@ jQuery(document).ready(function($) {
 
 		$.ajax({
 			type: "POST",
-			timeout: 30000,
 			url: test_1_ajax.ajaxurl,
 			data: {
 				'action': 'test_1_deactivate_license',
