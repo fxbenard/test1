@@ -92,30 +92,42 @@ function test_1_plugin_updater() {
 }
 add_action( 'admin_init', 'test_1_plugin_updater', 0 );
 
+/**
+ * Load Test1 themes textdomain function
+ * Thanks to @grappler for his help
+ */
+function test_1_themes_load_textdomain() {
 
-$license = get_option( 'test_1_license_key' );
-$status = get_option( 'test_1_license_status' );
-if ( $license !== false && $status == 'valid' ) {
-	// ADD YOUR STUFF HERE.
+	$domains = array(
+		'mytheme-domain',
+	);
+
+	foreach ( $domains as $domain ) {
+		if ( $loaded = load_theme_textdomain( $domain, WP_LANG_DIR . '/themes' ) ) {
+			$trad_location = 'languages_dir_themes';
+		} else {
+			$loaded = load_theme_textdomain( $domain, plugin_dir_path( __FILE__ ) . 'languages/' . $domain . '/' );
+		}
+	}
 }
+add_action( 'after_setup_theme', 'test_1_themes_load_textdomain', 10 );
 
 /**
- * Load Test1 textdomain function
+ * Load Test1 plugins textdomain function
  * Thanks to @grappler for his help
  */
 function test_1_load_plugin_textdomain() {
 	$domains = array(
-		'test1',
+		'myplugin-domain',
 	);
-	$domains = apply_filters( 'test_1_text_domains', $domains );
 	foreach ( $domains as $domain ) {
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-		if ( $loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . '/plugins/test-1/' . $domain . '-' . $locale . '.mo' ) ) {
-			return $loaded;
-		} elseif ( $loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' ) ) {
-			return $loaded;
+		if ( $loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . 'fx-trads/' . $domain . '/' . $domain . '-' . $locale . '.mo' ) ) {
+				$trad_location = 'languages_dir_fxtrads';
+		} elseif ( $loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '-' . $locale . '.mo' ) ) {
+				$trad_location = 'languages_dir';
 		} else {
-			load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' . $domain . '/' );
 		}
 	}
 }
