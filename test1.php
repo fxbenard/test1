@@ -131,5 +131,5 @@ function test_1_load_plugin_textdomain() {
 		}
 	}
 }
-add_action( 'init', 'test_1_load_plugin_textdomain', 0 );
+add_action( 'plugins_loaded', 'test_1_load_plugin_textdomain', 0 );
 
