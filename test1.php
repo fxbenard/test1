@@ -49,9 +49,6 @@ define( 'TEST_1_ASSETS_IMG_URL', TEST_1_ASSETS_URL . 'img/' );
  */
 function test_1_init() {
 
-	// Load translations.
-	load_plugin_textdomain( 'test1', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-
 	if ( is_admin() ) {
 
 		if ( ! class_exists( 'TEST_1_Plugin_Updater' ) ) {
@@ -99,7 +96,7 @@ add_action( 'admin_init', 'test_1_plugin_updater', 0 );
 function test_1_themes_load_textdomain() {
 
 	$domains = array(
-		'mytheme-domain',
+		'theme-textdomain',
 	);
 
 	foreach ( $domains as $domain ) {
@@ -118,7 +115,7 @@ add_action( 'after_setup_theme', 'test_1_themes_load_textdomain', 10 );
  */
 function test_1_load_plugin_textdomain() {
 	$domains = array(
-		'myplugin-domain',
+		'test-1',
 	);
 	foreach ( $domains as $domain ) {
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
@@ -132,4 +129,3 @@ function test_1_load_plugin_textdomain() {
 	}
 }
 add_action( 'plugins_loaded', 'test_1_load_plugin_textdomain', 0 );
-
