@@ -32,6 +32,7 @@ define( 'TEST_1_FILE', __FILE__ );
 define( 'TEST_1_URL', plugin_dir_url( TEST_1_FILE ) );
 define( 'TEST_1_PATH', realpath( plugin_dir_path( TEST_1_FILE ) ) . '/' );
 define( 'TEST_1_INC_PATH', realpath( TEST_1_PATH . 'inc' ) . '/' );
+define( 'TEST_1_3RDPARTY_PATH', realpath( TEST_1_INC_PATH . '3rd-party' ) . '/' );
 define( 'TEST_1_CLASSES_PATH', realpath( TEST_1_INC_PATH . 'classes' ) . '/' );
 define( 'TEST_1_ADMIN_PATH', realpath( TEST_1_INC_PATH . 'admin' ) . '/' );
 define( 'TEST_1_ADMIN_UI_PATH', realpath( TEST_1_ADMIN_PATH . 'ui' ) . '/' );
@@ -106,6 +107,11 @@ function test_1_themes_load_textdomain() {
 			$loaded = load_theme_textdomain( $domain, plugin_dir_path( __FILE__ ) . 'languages/' . $domain . '/' );
 		}
 	}
+
+	if ( in_array( 'et_builder', $domains ) ) {
+		require( TEST_1_3RDPARTY_PATH . 'et-builder.php' );
+	}
+
 }
 add_action( 'after_setup_theme', 'test_1_themes_load_textdomain', 10 );
 
